@@ -2,7 +2,7 @@ name: ftp-transfer
 
 on:
   push:
-    branches: [ main ]
+    branches: [ remote-integration ]
 
 jobs:
   ftp-transfer:
