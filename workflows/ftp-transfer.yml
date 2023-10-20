@@ -1,0 +1,21 @@
+name: ftp-transfer
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  ftp-transfer:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up FTP client
+        run: sudo apt install lftp
+
+      - name: Upload files to FTP server
+        run: |
+          lftp ${{secrets.FTP_SERVER}} 
+          login ${{secrets.FTP_USERNAME}} ${{secrets.FTP_PASSWORD}}
+          cd ismgroup39
+          mirror -R /webpage /ismgroup39/test
+          bye
