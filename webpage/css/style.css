@@ -594,4 +594,13 @@ label.valid {
       margin: 20px; 
   }
 
+  #navbar-signed-in {
+    display: none;
+  }
+
+  #navbar-not-signed-in {
+      display: block; 
+  } 
+
+
 /*# sourceMappingURL=style.css.map */
