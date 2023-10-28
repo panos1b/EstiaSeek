@@ -602,5 +602,8 @@ label.valid {
       display: block; 
   } 
 
+  .input-group {
+    margin-top: 20%;
+  }
 
 /*# sourceMappingURL=style.css.map */
