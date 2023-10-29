@@ -1,5 +1,5 @@
 // Check the user's authentication status
-const userIsSignedIn = false;
+const userIsSignedIn = true;
 
 // Get references to the navigation bars
 const navbarSignedIn = document.getElementById('navbar-signed-in');
