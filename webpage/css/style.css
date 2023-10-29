@@ -605,5 +605,9 @@ label.valid {
   .input-group {
     margin-top: 20%;
   }
-
+  
+  tr {
+    height: 50px;
+  }
+  
 /*# sourceMappingURL=style.css.map */
