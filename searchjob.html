@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ESTIASeek - Work in Food Service</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Find a Job</h2>
+                        <form method="POST" class="register-form" id="register-form">
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="name" id="name" placeholder="Position Title"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="location"><i class="zmdi zmdi-pin"></i></label> 
+                                <select id="location"  type="location" name="location" >
+                                    <option  value="" disabled selected>Location</option>
+                                    <option value="athens">Athens</option>
+                                    <option value="thessaloniki">Thessaloniki</option>
+                                    <option value="patras">Patras</option>
+                                    <option value="heraklion">Heraklion</option>
+                                    <option value="chania">Chania</option>
+                                    <option value="santorini">Santorini</option>
+                                    <option value="mykonos">Mykonos</option>
+                                    <option value="volos">Volos</option>
+                                </select>
+                            
+                            </div>
+                            <div class="form-group">
+                                <label for="level"><i class="zmdi zmdi-trending-up"></i></label>
+                                <select id="level"  type="level" name="level" >
+                                    <option  value="" disabled selected>Level</option>
+                                    <option value="entry">Entry level</option>
+                                    <option value="senior">Senior</option>
+                                </select>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Search"/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="images/jobsearch.png" alt="sing up image"></figure>
+                       
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+    </div>
+
+   
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
