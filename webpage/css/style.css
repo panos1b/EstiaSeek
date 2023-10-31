@@ -617,7 +617,7 @@ label.valid {
     border-radius:5px;
     border: #999;
     font-family: 'Poppins';
-    width: 90%;
+    width: 85%;
   }
 
   select:focus{
