@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Search for Candidates</title>
+    <title>Filtered Candidates</title>
 
     <!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
@@ -81,52 +81,103 @@
 		  </nav>
     </header>
 
-    <div class="main" style="padding: 50px;">  
+    <button class="btn btn-outline-success" style = "background-color:rgb(35, 35, 35); color: white; border-color: rgb(72, 69, 69); margin-left: 0.5cm; margin-top: 0.5cm;" type="signout">Edit Filters</button>
+    <div class="container" style="width: 1200px;">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Username</th>
+            <th scope="col">Job Title</th>
+            <th scope="col">Email</th>
+            <th scope="col">Experience</th>
+            <th scope="col">Location</th>
+          </tr>
+        </thead>
 
-        <section class="Candidate-Search">
-            <div class="container">
-                <div class="signin-content">
-                    <div class="signin-image" style="margin-left: 50px; margin-right: 0px;">
-                        <a href="index.html" class="signup-image-link">Back To Home</a>
-                        <br>
-                        <figure><img src="images/candidate-search.png" alt="job posting image" style="margin-top: 50px;"></figure>
-                    </div>
-
-                    <div class="signin-form">
-                        <h2 class="form-title">Search for Candidates</h2>
-                        <form method="POST" class="register-form" id="login-form" style="text-align: center;">
-                            <div class="form-group">
-                                <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="your_job_title" id="your_job_title" placeholder="Job Title"/>
-                            </div>
-
-                            <div class="form-group" style="margin-top: 20%;">
-                                <label for="your_location"><i class="zmdi zmdi-pin material-icons-location"></i></label>
-                                <input type="text" name="your_location" id="your_location" placeholder="Location"/>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="experience_level">Experience level:</label>
-                                <div class="input-group">
-                                    <select name="experience_level" id="experience_level" class="form-control">
-                                        <option value="any">Any</option>
-                                        <option value="entry">Entry Level</option>
-                                        <option value="intermediate">Intermediate</option>
-                                        <option value="senior">Senior</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group form-button">
-                                <input type="submit" name="submi_form" id="submi_form" class="form-submit" style="margin-top: 30%;" value="Search"/>
-                            </div>
-                        </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td><a href="#">vtalos</a></td>
+                <td>Cook</td>
+                <td>vtalos@catering.com</td>
+                <td>Entry Level</td>
+                <td>Athens</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td><a href="#">panos1b</a></td>
+                <td>Barista</td>
+                <td>panos1b@catering.com</td>
+                <td>Intermediate</td>
+                <td>Thessaloniki</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td><a href="#">redihena</a></td>
+                <td>Waiter</td>
+                <td>redi1@catering.com</td>
+                <td>Senior</td>
+                <td>Patras</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td><a href="#">john2003</a></td>
+                <td>Dishwasher</td>
+                <td>john2003@catering.com</td>
+                <td>Entry Level</td>
+                <td>Larissa</td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td><a href="#">alkmini</a></td>
+                <td>Manager</td>
+                <td>alkmini18@catering.com</td>
+                <td>Senior</td>
+                <td>Heraklion</td>
+            </tr>
+            <tr>
+                <th scope="row">6</th>
+                <td><a href="#">maria.p</a></td>
+                <td>Assistant Manager</td>
+                <td>maria.p@catering.com</td>
+                <td>Intermediate</td>
+                <td>Volos</td>
+            </tr>
+            <tr>
+                <th scope="row">7</th>
+                <td><a href="#">kostas.v</a></td>
+                <td>Head Chef</td>
+                <td>kostas.v@catering.com</td>
+                <td>Senior</td>
+                <td>Ioannina</td>
+            </tr>
+            <tr>
+                <th scope="row">8</th>
+                <td><a href="#">elena.z</a></td>
+                <td>Pastry Chef</td>
+                <td>elena.z@catering.com</td>
+                <td>Senior</td>
+                <td>Kavala</td>
+            </tr>
+            <tr>
+                <th scope="row">9</th>
+                <td><a href="#">vasilis.k</a></td>
+                <td>Bartender</td>
+                <td>vasilis.k@catering.com</td>
+                <td>Intermediate</td>
+                <td>Chania</td>
+            </tr>
+            <tr>
+                <th scope="row">10</th>
+                <td><a href="#">georgia.d</a></td>
+                <td>Server</td>
+                <td>georgia.d@catering.com</td>
+                <td>Intermediate</td>
+                <td>Serres</td>
+            </tr>   
+        </tbody>
+    </table>
     </div>
 
     <script src="js/signedInCheck.js"></script>
