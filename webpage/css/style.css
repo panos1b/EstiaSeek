@@ -623,5 +623,9 @@ label.valid {
   select:focus{
     color:black;
   }
+
+  .btn btn-primary {
+    font-size: 12px; padding: 5px 10px;
+  }
   
 /*# sourceMappingURL=style.css.map */
