@@ -609,5 +609,19 @@ label.valid {
   tr {
     height: 50px;
   }
+
+  select{
+    color:gray ;
+    border:none;
+    padding: 10px 20px;
+    border-radius:5px;
+    border: #999;
+    font-family: 'Poppins';
+    width: 85%;
+  }
+
+  select:focus{
+    color:black;
+  }
   
 /*# sourceMappingURL=style.css.map */
