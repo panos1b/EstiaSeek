@@ -50,10 +50,10 @@
         </nav>
     </header>
 
-    <div class="main">
+
 
         <section class="Job-Posting">
-            <div class="container" style="height: 650px;">
+            <div class="container">
                 <div class="signin-content">
                     <div class="signin-image">
                         <a href="index.html" class="signup-image-link">Back To Home</a>
@@ -74,12 +74,23 @@
                             </div>
                             <div class="form-group">
                                 <label for="your_location"><i class="fas fa-map-marker-alt"></i></label>
-                                <input type="text" name="your_location" id="your_location" placeholder="Location"/>
+                                <select id="location" name="location" style="margin-left: 8%;">
+                                    <option value="" disabled selected>Location</option>
+                                    <option value="agion oros">Agion Oros</option>
+                                    <option value="attica">Attica</option>
+                                    <option value="crete">Crete</option>
+                                    <option value="epirus-western macedonia">Epirus-Western Macedonia</option>
+                                    <option value="macedonia-thrace">Macedonia - Thrace</option>
+                                    <option value="peloponisos-w. greece & ionian, egean">Peloponisos-W. Greece & Ionian,
+                                        Egean
+                                    </option>
+                                    <option value="thessalia-central greece">Thessalia-Central Greece</option>
+                                </select>
                             </div>
 
-                            <div class="form-group" style="margin-top: 10%;">
+                            <div class="form-group">
                                 <label for="experience"><i class="fas fa-star"></i></label> 
-                                <select id="experience"  type="experience" name="experience_level" style="margin-left: 8%;">
+                                <select id="experience" name="experience_level" style="margin-left: 8%;">
                                     <option  value="" disabled selected>Experience required</option>
                                     <option value="any">Any</option>
                                     <option value="entry">Entry Level</option>
@@ -104,7 +115,6 @@
             </div>
         </section>
 
-    </div>
 
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
