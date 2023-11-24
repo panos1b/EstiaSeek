@@ -28,7 +28,7 @@
   <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">EstiaSeek</a>
+        <a class="navbar-brand" href="index.jsp">EstiaSeek</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -36,19 +36,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="company_profile.html">Profile</a>
+              <a class="nav-link" href="company_profile.jsp">Profile</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="candidate_search.html">Search for Candidates</a>
+              <a class="nav-link" href="candidate_search.jsp">Search for Candidates</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="job_posting.html">Post a Job</a>
+              <a class="nav-link" href="job_posting.jsp">Post a Job</a>
             </li>
           </ul>
           <form class="d-flex" role="login-signup">
             <a class="btn btn-outline-success"
               style="background-color:rgba(203, 207, 211, 0.188); color: black; border-color: black;" type="signout"
-              href="login.html">Sign out</a>
+              href="login.jsp">Sign out</a>
           </form>
         </div>
       </div>
@@ -104,7 +104,7 @@
             <tbody>
               <tr>
                 <th scope="row">1</th>
-                <td><a href="applicant_profile.html">vtalos</a></td>
+                <td><a href="applicant_profile.jsp">vtalos</a></td>
                 <td>Cook</td>
                 <td>vtalos@catering.com</td>
                 <td>Entry Level</td>
@@ -114,7 +114,7 @@
               </tr>
               <tr>
                 <th scope="row">2</th>
-                <td><a href="applicant_profile.html">panos1b</a></td>
+                <td><a href="applicant_profile.jsp">panos1b</a></td>
                 <td>Barista</td>
                 <td>panos1b@catering.com</td>
                 <td>Intermediate</td>
@@ -124,7 +124,7 @@
               </tr>
               <tr>
                 <th scope="row">3</th>
-                <td><a href="applicant_profile.html">redihena</a></td>
+                <td><a href="applicant_profile.jsp">redihena</a></td>
                 <td>Waiter</td>
                 <td>redi1@catering.com</td>
                 <td>Senior</td>
@@ -134,7 +134,7 @@
               </tr>
               <tr>
                 <th scope="row">4</th>
-                <td><a href="applicant_profile.html">john2003</a></td>
+                <td><a href="applicant_profile.jsp">john2003</a></td>
                 <td>Dishwasher</td>
                 <td>john2003@catering.com</td>
                 <td>Entry Level</td>
@@ -144,7 +144,7 @@
               </tr>
               <tr>
                 <th scope="row">5</th>
-                <td><a href="applicant_profile.html">alkmini</a></td>
+                <td><a href="applicant_profile.jsp">alkmini</a></td>
                 <td>Manager</td>
                 <td>alkmini18@catering.com</td>
                 <td>Senior</td>

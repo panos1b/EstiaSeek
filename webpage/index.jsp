@@ -23,20 +23,20 @@
 	<header>
 		<nav class="navbar navbar-expand-lg bg-body-tertiary">
 			<div class="container-fluid">
-			  <a class="navbar-brand" href="index.html">EstiaSeek</a>
+			  <a class="navbar-brand" href="index.jsp">EstiaSeek</a>
 			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			  </button>
 			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				  <li class="nav-item">
-					<a class="nav-link" href="candidate_search.html">Search for Professionals</a>
+					<a class="nav-link" href="candidate_search.jsp">Search for Professionals</a>
 				  </li>
 				</ul>
 				<form class="d-flex" role="login-signup">
-				  <a class="btn btn-outline-success" style = "background-color: white; color: black; border-color: black; margin-right: 5px;" id="signin-btn" style="margin-right: 10px;" type="signin" href="login.html">Sign in</a>
+				  <a class="btn btn-outline-success" style = "background-color: white; color: black; border-color: black; margin-right: 5px;" id="signin-btn" style="margin-right: 10px;" type="signin" href="login.jsp">Sign in</a>
 					
-				  <a class="btn btn-outline-success" style = "background-color:darkgray; color: white; border-color: black;" type="signup" href="signup_applicant.html">Sign up</a>
+				  <a class="btn btn-outline-success" style = "background-color:darkgray; color: white; border-color: black;" type="signup" href="signup_applicant.jsp">Sign up</a>
 				</form>
 			  </div>
 			</div>
@@ -121,7 +121,7 @@
 		  <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 			<div class="accordion-body">
 			  <strong>Signing up is quick and easy. </strong> Join our growing community of employers and job seekers, and take the first step toward your future success in the hospitality industry. Let EstiaSeek be your guide to finding the perfect match for your career goals or your business needs.
-			  <div style="display: flex; align-items: center; justify-content: center;"><a style = "background-color: white; color: black; border-color: black;" type="signup" href="signup_applicant.html">Sign up and Begin your Journey!</a></div>
+			  <div style="display: flex; align-items: center; justify-content: center;"><a style = "background-color: white; color: black; border-color: black;" type="signup" href="signup_applicant.jsp">Sign up and Begin your Journey!</a></div>
 			</div>
 		  </div>
 		</div>

@@ -24,14 +24,14 @@
     <header>
 		<nav class="navbar navbar-expand-lg bg-body-tertiary">
 			<div class="container-fluid">
-			  <a class="navbar-brand" href="index.html">EstiaSeek</a>
+			  <a class="navbar-brand" href="index.jsp">EstiaSeek</a>
 			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			  </button>
 			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				  <li class="nav-item">
-					<a class="nav-link" href="candidate_search.html">Search for Professionals</a>
+					<a class="nav-link" href="candidate_search.jsp">Search for Professionals</a>
 				  </li>
 				</ul>
 			  </div>
@@ -48,8 +48,8 @@
                     <div class="signup-image">
                         <figure><img src="images/vecteezy_desk-with-laptop-books-plants-and-chair-vector-design_.jpg" alt="sing up image"></figure>
                         <br>
-                        <a href="signup_applicant.html" class="signup-image-link">I am an Applicant</a>
-                        <a href="login.html" class="signup-image-link">I am already member</a>
+                        <a href="signup_applicant.jsp" class="signup-image-link">I am an Applicant</a>
+                        <a href="login.jsp" class="signup-image-link">I am already member</a>
                     </div>
                     <div class="signup-form">
                         <h2 class="form-title">Sign Up - Employer</h2>
@@ -81,10 +81,10 @@
                             
                             <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                             <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree to all
-                                statements in <a href="tos.html" class="term-service">Terms of service</a></label>
+                                statements in <a href="tos.jsp" class="term-service">Terms of service</a></label>
 
                                 <div class="form-group form-button">
-                                    <a href="login.html" class="form-submit">
+                                    <a href="login.jsp" class="form-submit">
                                         <link type="submit" name="signup" id="signup" value="Register">Register</link>
                                     </a>
                                 </div>

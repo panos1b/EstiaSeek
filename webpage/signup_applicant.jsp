@@ -24,7 +24,7 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">EstiaSeek</a>
+                <a class="navbar-brand" href="index.jsp">EstiaSeek</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -93,19 +93,19 @@
 
                             <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                             <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree to all
-                                statements in <a href="tos.html" class="term-service">Terms of service</a></label>
+                                statements in <a href="tos.jsp" class="term-service">Terms of service</a></label>
 
                             <div class="form-group form-button">
-                                <a href="login.html" class="form-submit">
-                                    <link type="submit" name="signup" id="signup" value="Register" href="login.html">Register</link>
+                                <a href="login.jsp" class="form-submit">
+                                    <link type="submit" name="signup" id="signup" value="Register" href="login.jsp">Register</link>
                                 </a>
                             </div>
                         </form>
                     </div>
                     <div class="signup-image">
                         <figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
-                        <a href="signup_employer.html" class="signup-image-link">I am an Employer</a>
-                        <a href="login.html" class="signup-image-link">I am already member</a>
+                        <a href="signup_employer.jsp" class="signup-image-link">I am an Employer</a>
+                        <a href="login.jsp" class="signup-image-link">I am already member</a>
                     </div>
                 </div>
             </div>

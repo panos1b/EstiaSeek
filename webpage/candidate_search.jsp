@@ -27,24 +27,24 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar-signed-in">
             <div class="container-fluid">
-              <a class="navbar-brand" href="index.html">EstiaSeek</a>
+              <a class="navbar-brand" href="index.jsp">EstiaSeek</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link" href="company_profile.html">Profile</a>
+                    <a class="nav-link" href="company_profile.jsp">Profile</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="candidate_search.html">Search for Candidates</a>
+                    <a class="nav-link" href="candidate_search.jsp">Search for Candidates</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="job_posting.html">Post a Job</a>
+                    <a class="nav-link" href="job_posting.jsp">Post a Job</a>
                   </li>
                 </ul>
                 <form class="d-flex" role="login-signup">
-                  <a class="btn btn-outline-success" style = "background-color:rgba(203, 207, 211, 0.188); color: black; border-color: black;" type="signout" href="login.html">Sign out</a>
+                  <a class="btn btn-outline-success" style = "background-color:rgba(203, 207, 211, 0.188); color: black; border-color: black;" type="signout" href="login.jsp">Sign out</a>
                 </form>
               </div>
             </div>
@@ -52,20 +52,20 @@
 
         <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar-not-signed-in">
 			<div class="container-fluid">
-			  <a class="navbar-brand" href="index.html">EstiaSeek</a>
+			  <a class="navbar-brand" href="index.jsp">EstiaSeek</a>
 			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			  </button>
 			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				  <li class="nav-item">
-					<a class="nav-link" href="candidate_search.html">Search for Professionals</a>
+					<a class="nav-link" href="candidate_search.jsp">Search for Professionals</a>
 				  </li>
 				</ul>
 				<form class="d-flex" role="login-signup">
-				  <a class="btn btn-outline-success" style = "background-color: white; color: black; border-color: black; margin-right: 5px;" id="signin-btn" style="margin-right: 10px;" type="signin" href="login.html">Sign in</a>
+				  <a class="btn btn-outline-success" style = "background-color: white; color: black; border-color: black; margin-right: 5px;" id="signin-btn" style="margin-right: 10px;" type="signin" href="login.jsp">Sign in</a>
 					
-				  <a class="btn btn-outline-success" style = "background-color:darkgray; color: white; border-color: black;" type="signup" href="signup_applicant.html">Sign up</a>
+				  <a class="btn btn-outline-success" style = "background-color:darkgray; color: white; border-color: black;" type="signup" href="signup_applicant.jsp">Sign up</a>
 				</form>
 			  </div>
 			</div>
@@ -78,7 +78,7 @@
             <div class="container">
                 <div class="signin-content">
                     <div class="signin-image" style="margin-left: 50px; margin-right: 0px;">
-                        <a href="index.html" class="signup-image-link">Back To Home</a>
+                        <a href="index.jsp" class="signup-image-link">Back To Home</a>
                         <br>
                         <figure><img src="images/candidate-search.png" alt="job posting image" style="margin-top: 50px;"></figure>
                     </div>
@@ -117,7 +117,7 @@
                           </div>
 
                             <div class="form-group form-button">
-                              <a type="submit" class="form-submit" href="candidate_list.html">Search</a>   
+                              <a type="submit" class="form-submit" href="candidate_list.jsp">Search</a>   
                               <!-- <input type="submit" name="submi_form" id="submi_form" class="form-submit" value="Search"/> -->
                             </div>
                         </form>
