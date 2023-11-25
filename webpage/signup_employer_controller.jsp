@@ -23,45 +23,44 @@ if (name.length() >= 1 && password.length() >= 6 && confirm.equals(password) && 
 
     Connection con = null;
 
-    // Define the SQL statement (to be executed)
-    String sql = "INSERT INTO users (Name, Email, Password, Bio) " + " VALUES (?, ?, ?, ?);";
-
-    String employerElements = "INSERT INTO employers (User_ID, Organization) " + " VALUES (?, ?);";
+    // Define the SQL statements (to be executed)
+    String newUserQuery = "INSERT INTO users (Name, Email, Password, Bio) " + " VALUES (?, ?, ?, ?);";
+    String newEmployerQuery = "INSERT INTO employers (User_ID, Organization) " + " VALUES (?, ?);";
 
     JdbcManager db = new JdbcManager();
 
     try {
-        // open connection and get Connection object
+        // Open connection and get Connection object
         con = db.getConnection();
 
-        PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement stmt = con.prepareStatement(newUserQuery, Statement.RETURN_GENERATED_KEYS);
 
-        // set values to all parameters
+        // Set values to all parameters
         stmt.setString(1, name);
         stmt.setString(2, email);
         stmt.setString(3, password);
         stmt.setString(4, bio);
 
-        // execute the SQL statement (INSERT)
+        // Execute the SQL statement (INSERT)
         stmt.executeUpdate();
 
-        // retrieve the generated key
+        // Eetrieve the generated key
         ResultSet generatedKeys = stmt.getGeneratedKeys();
 
         if (generatedKeys.next()) {
             int userId = generatedKeys.getInt(1);
 
-            // close statement
+            // Close first statement
             stmt.close();
 
-            PreparedStatement stmt2 = con.prepareStatement(employerElements);
+            PreparedStatement stmt2 = con.prepareStatement(newEmployerQuery);
             stmt2.setInt(1, userId);
             stmt2.setString(2, org);
             
-            // execute the second SQL statement (INSERT)
+            // Execute the second SQL statement (INSERT)
             stmt2.executeUpdate();
 
-            // close statement number two
+            // Close statement number two
             stmt2.close();
         }
 
