@@ -44,7 +44,7 @@
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">Sign Up - Applicant</h2>
-                        <form method="POST" class="register-form" id="register-form">
+                        <form method="POST" class="register-form" id="register-form" action="signup_applicant_controller.jsp">
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="name" id="name" placeholder="Your Name" />
@@ -63,7 +63,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="shot_bio"><i class="zmdi zmdi-receipt"></i></label>
-                                <input type="text" id="bio" name="Bio" placeholder="Short bio" >
+                                <input type="text" id="bio" name="bio" placeholder="Short bio" >
                             </div>
                             <div class="form-group">
                                 <label for="location"><i class="zmdi zmdi-pin"></i></label> 
@@ -95,11 +95,13 @@
                             <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree to all
                                 statements in <a href="tos.jsp" class="term-service">Terms of service</a></label>
 
-                            <div class="form-group form-button">
-                                <a href="login.jsp" class="form-submit">
-                                    <link type="submit" name="signup" id="signup" value="Register" href="login.jsp">Register</link>
-                                </a>
+                             <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register" />
                             </div>
+
+                            <% if(request.getAttribute("message") != null) { %>		
+                                <div class="alert alert-danger text-center" role="alert"><%=(String)request.getAttribute("message") %></div>
+                            <% } %>
                         </form>
                     </div>
                     <div class="signup-image">
