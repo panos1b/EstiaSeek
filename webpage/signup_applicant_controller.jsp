@@ -2,6 +2,8 @@
 <%@ page import="vscode_ismgroup39.*" %>
 <%@ page import="java.sql.Connection" %>
 <%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.Statement" %>
 
 <% 
 String name = request.getParameter("name");
@@ -25,7 +27,7 @@ if (name.length() >= 1 && password.length() >= 6 && confirm.equals(password) && 
     String newUserQuery= "INSERT INTO users (Name, Email, Password, Bio) " 
                         + " VALUES (?, ?, ?, ?);";
 
-    String newApplicantQuery = "INSERT INTO employers (User_ID, Experience, Location) " 
+    String newApplicantQuery = "INSERT INTO applicants (User_ID, Experience, Location) " 
                               + " VALUES (?, ?, ?);";
     
     JdbcManager db = new JdbcManager();
@@ -51,18 +53,10 @@ if (name.length() >= 1 && password.length() >= 6 && confirm.equals(password) && 
         if (generatedKeys.next()) {
             int userId = generatedKeys.getInt(1);
 
-        //close everything to release resources	
-        stmt.close();
-
-        ResultSet generatedKeys = stmt.getGeneratedKeys();
-
-        if (generatedKeys.next()) {
-            int userId = generatedKeys.getInt(1);
-
-            // close statement
+            //close first stmt
             stmt.close();
 
-            PreparedStatement stmt2 = con.prepareStatement(employerElements);
+            PreparedStatement stmt2 = con.prepareStatement(newApplicantQuery);
             stmt2.setInt(1, userId);
             stmt2.setString(2, experience);
             stmt2.setString(3, location);
