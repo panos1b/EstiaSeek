@@ -41,9 +41,6 @@ if (username != null && password != null) {
             String userPassword = rs.getString("Password");
             String bio = rs.getString("Bio");
 
-            // Create a User object with the retrieved data
-            User user = new User(userId, name, email, userPassword, bio);
-
             // Check if the user is an employer
             PreparedStatement employerStmt = con.prepareStatement(findEmployer);
             employerStmt.setInt(1, userId);
@@ -51,6 +48,15 @@ if (username != null && password != null) {
 
             if (employerRs.next()) {
                 
+                String org = employerRs.getString("Organization");
+
+                Employer employer = new Employer(userId, name, email, userPassword, bio, org);
+                // Set the user object in the session
+                session.setAttribute("userObj", employer);
+
+                // Redirect to the correct profile page
+                response.sendRedirect("company_profile.jsp");
+
             } else {
 
                 // Check if the user is an applicant
@@ -59,18 +65,25 @@ if (username != null && password != null) {
                 ResultSet applicantRs = applicantStmt.executeQuery();
 
                 if (applicantRs.next()) {
-                    // The user is an applicant
-                    // Add applicant-specific logic here
-                    // For example, set a flag in the User object
-                    user.setApplicant(true);
+                    
+                    String experience = applicantRs.getString("Experience");
+                    String location = applicantRs.getString("Location");
+
+                    Applicant applicant = new Applicant(userId, name, email, userPassword, bio, location);
+                    // Set the user object in the session
+                    session.setAttribute("userObj", applicant);
+
+                    // Redirect to the correct profile page
+                    response.sendRedirect("applicant_profile.jsp");
+
                 }
+
+                applicantRs.close();
 
             }
 
-            // Set the user object in the session
-            session.setAttribute("userObj", user);
+            employerRs.close();
 
-            response.sendRedirect("dashboard_ex2_8210146.jsp");
         } else {
             request.setAttribute("message", "Wrong username or password");
 
