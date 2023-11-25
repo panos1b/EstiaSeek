@@ -24,9 +24,9 @@ if (name.length() >= 1 && password.length() >= 6 && confirm.equals(password) && 
     Connection con = null;
 
     // Define the SQL statement (to be executed)
-    String sql = "INSERT INTO users (Name, Email, Password) " + " VALUES (?, ?, ?);";
+    String sql = "INSERT INTO users (Name, Email, Password, Bio) " + " VALUES (?, ?, ?, ?);";
 
-    String employerElements = "INSERT INTO employers (User_ID, Bio, Organization) " + " VALUES (?, ?, ?);";
+    String employerElements = "INSERT INTO employers (User_ID, Organization) " + " VALUES (?, ?);";
 
     JdbcManager db = new JdbcManager();
 
@@ -40,6 +40,7 @@ if (name.length() >= 1 && password.length() >= 6 && confirm.equals(password) && 
         stmt.setString(1, name);
         stmt.setString(2, email);
         stmt.setString(3, password);
+        stmt.setString(4, bio);
 
         // execute the SQL statement (INSERT)
         stmt.executeUpdate();
@@ -55,9 +56,8 @@ if (name.length() >= 1 && password.length() >= 6 && confirm.equals(password) && 
 
             PreparedStatement stmt2 = con.prepareStatement(employerElements);
             stmt2.setInt(1, userId);
-            stmt2.setString(2, bio);
-            stmt2.setString(3, org);
-
+            stmt2.setString(2, org);
+            
             // execute the second SQL statement (INSERT)
             stmt2.executeUpdate();
 

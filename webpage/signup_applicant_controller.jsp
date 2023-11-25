@@ -22,8 +22,11 @@ if (name.length() >= 1 && password.length() >= 6 && confirm.equals(password) && 
     Connection con = null;
 		
     //Define the SQL statement (to be executed)
-    String sql= "INSERT INTO users (Name, Email, Password) " 
-                        + " VALUES (?, ?, ?);";
+    String newUserQuery= "INSERT INTO users (Name, Email, Password, Bio) " 
+                        + " VALUES (?, ?, ?, ?);";
+
+    String newApplicantQuery = "INSERT INTO employers (User_ID, Experience, Location) " 
+                              + " VALUES (?, ?, ?);";
     
     JdbcManager db = new JdbcManager();
             
@@ -31,18 +34,48 @@ if (name.length() >= 1 && password.length() >= 6 && confirm.equals(password) && 
         //open connection and get Connection object			
         con = db.getConnection();
         
-        PreparedStatement stmt = con.prepareStatement( sql );
+        PreparedStatement stmt = con.prepareStatement(newUserQuery, Statement.RETURN_GENERATED_KEYS);
         
         //set values to all parameters
         stmt.setString(1, name);
         stmt.setString(2, email);
         stmt.setString(3, password);
+        stmt.setString(4, bio);
         
         //execute the SQL statement (INSERT)	
         stmt.executeUpdate();
         
+        // retrieve the generated key
+        ResultSet generatedKeys = stmt.getGeneratedKeys();
+
+        if (generatedKeys.next()) {
+            int userId = generatedKeys.getInt(1);
+
         //close everything to release resources	
         stmt.close();
+
+        ResultSet generatedKeys = stmt.getGeneratedKeys();
+
+        if (generatedKeys.next()) {
+            int userId = generatedKeys.getInt(1);
+
+            // close statement
+            stmt.close();
+
+            PreparedStatement stmt2 = con.prepareStatement(employerElements);
+            stmt2.setInt(1, userId);
+            stmt2.setString(2, experience);
+            stmt2.setString(3, location);
+
+            // execute the second SQL statement (INSERT)
+            stmt2.executeUpdate();
+
+            // close statement number two
+            stmt2.close();
+        }
+
+        generatedKeys.close();
+
         db.close();
 
         } catch (Exception e) {
