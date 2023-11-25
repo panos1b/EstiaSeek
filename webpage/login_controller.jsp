@@ -14,9 +14,9 @@ if (username != null && password != null) {
     Connection con = null;
 
     // Define the SQL statement (to be executed)
-    String findUser = "SELECT * FROM users WHERE your_name=? AND your_pass=?;";
-    String findEmployer = "SELECT * FROM employers WHERE User_ID=?;"
-    String findApplicant = "SELECT * FROM applicants WHERE User_ID=?;"
+    String findUser = "SELECT * FROM users WHERE Name=? AND Password=?;";
+    String findEmployer = "SELECT * FROM employers WHERE User_ID=?;";
+    String findApplicant = "SELECT * FROM applicants WHERE User_ID=?;";
 
     JdbcManager db = new JdbcManager();
 
@@ -69,7 +69,7 @@ if (username != null && password != null) {
                     String experience = applicantRs.getString("Experience");
                     String location = applicantRs.getString("Location");
 
-                    Applicant applicant = new Applicant(userId, name, email, userPassword, bio, location);
+                    Applicant applicant = new Applicant(userId, name, email, userPassword, bio, experience, location);
                     // Set the user object in the session
                     session.setAttribute("userObj", applicant);
 
