@@ -2,7 +2,8 @@
 <%@ page import="vscode_ismgroup39.*" %>
 <%@ page import="java.sql.Connection" %>
 <%@ page import="java.sql.PreparedStatement" %>
-
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.Statement" %>
 
 
 <% 
@@ -21,44 +22,63 @@ boolean isAgreeTermChecked = "on".equals(agreeTermValue);
 if (name.length() >= 1 && password.length() >= 6 && confirm.equals(password) && org != null && email != null && bio != null && isAgreeTermChecked) {
 
     Connection con = null;
-		
-    //Define the SQL statement (to be executed)
-    String sql= "INSERT INTO users (Name, Email, Password) " 
-                        + " VALUES (?, ?, ?);";
-    
+
+    // Define the SQL statement (to be executed)
+    String sql = "INSERT INTO users (Name, Email, Password) " + " VALUES (?, ?, ?);";
+
+    String employerElements = "INSERT INTO employers (User_ID, Bio, Organization) " + " VALUES (?, ?, ?);";
+
     JdbcManager db = new JdbcManager();
-            
+
     try {
-        //open connection and get Connection object			
+        // open connection and get Connection object
         con = db.getConnection();
-        
-        PreparedStatement stmt = con.prepareStatement( sql );
-        
-        //set values to all parameters
+
+        PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+        // set values to all parameters
         stmt.setString(1, name);
         stmt.setString(2, email);
         stmt.setString(3, password);
-        
-        //execute the SQL statement (INSERT)	
+
+        // execute the SQL statement (INSERT)
         stmt.executeUpdate();
-        
-        //close everything to release resources	
-        stmt.close();
+
+        // retrieve the generated key
+        ResultSet generatedKeys = stmt.getGeneratedKeys();
+
+        if (generatedKeys.next()) {
+            int userId = generatedKeys.getInt(1);
+
+            // close statement
+            stmt.close();
+
+            PreparedStatement stmt2 = con.prepareStatement(employerElements);
+            stmt2.setInt(1, userId);
+            stmt2.setString(2, bio);
+            stmt2.setString(3, org);
+
+            // execute the second SQL statement (INSERT)
+            stmt2.executeUpdate();
+
+            // close statement number two
+            stmt2.close();
+        }
+
+        generatedKeys.close();
         db.close();
 
-        } catch (Exception e) {
+    } catch (Exception e) {
+        request.setAttribute("message", "Error");
+    } finally {
 
-            request.setAttribute("message", "Error");
-
-        } finally {
-        
         try {
             db.close();
-        } catch (Exception e) {				
-                
+        } catch (Exception e) {
+
         }
-        
     }
+
 
 %>
 
