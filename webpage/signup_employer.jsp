@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,14 +54,14 @@
                     </div>
                     <div class="signup-form">
                         <h2 class="form-title">Sign Up - Employer</h2>
-                        <form method="POST" class="register-form" id="register-form">
+                        <form method="POST" class="register-form" id="register-form" action="signup_employer_controller.jsp">
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="name" id="name" placeholder="Your Name" />
                             </div>
                             <div class="form-group">
-                                <label for="name"><i class="zmdi zmdi-balance "></i></label>
-                                <input type="text" name="name" id="org_name" placeholder="Your Organisation" />
+                                <label for="org_name"><i class="zmdi zmdi-balance "></i></label>
+                                <input type="text" name="org_name" id="org_name" placeholder="Your Organisation" />
                             </div>
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
@@ -75,19 +76,21 @@
                                 <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password" />
                             </div>
                             <div class="form-group">
-                                <label for="shot_bio"><i class="zmdi zmdi-receipt"></i></label>
-                                <input type="text" id="bio" name="Bio" placeholder="Short bio" >
+                                <label for="short_bio"><i class="zmdi zmdi-receipt"></i></label>
+                                <input type="text" id="bio" name="bio" placeholder="Short bio" >
                             </div>
                             
                             <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                             <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree to all
                                 statements in <a href="tos.jsp" class="term-service">Terms of service</a></label>
 
-                                <div class="form-group form-button">
-                                    <a href="login.jsp" class="form-submit">
-                                        <link type="submit" name="signup" id="signup" value="Register">Register</link>
-                                    </a>
-                                </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register" />
+                            </div>
+
+                            <% if(request.getAttribute("message") != null) { %>		
+                                <div class="alert alert-danger text-center" role="alert"><%=(String)request.getAttribute("message") %></div>
+                            <% } %>
                         </form>
                     </div>
                 </div>
