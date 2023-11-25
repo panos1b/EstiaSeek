@@ -52,7 +52,7 @@
 
                     <div class="signin-form">
                         <h2 class="form-title">Log in</h2>
-                        <form method="POST" class="register-form" id="login-form">
+                        <form method="POST" class="register-form" id="login-form" action="login_controller.jsp">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="your_name" id="your_name" placeholder="Your Name" />
@@ -66,10 +66,15 @@
                                 <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember
                                     me</label>
                             </div>
+
                             <div class="form-group form-button">
-                                <a class="form-submit" type="submit" href="company_profile.jsp">Log in</a>
-                                <!-- <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" /> -->
+                                <input type="submit" name="login" id="login" class="form-submit" value="Log in" />
                             </div>
+
+                            <% if(request.getAttribute("message") != null) { %>		
+                                <div class="alert alert-danger text-center" role="alert"><%=(String)request.getAttribute("message") %></div>
+                            <% } %>
+
                         </form>
                     </div>
                 </div>
