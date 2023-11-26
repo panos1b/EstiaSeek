@@ -24,14 +24,14 @@
     <header>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.html">EstiaSeek</a>
+          <a class="navbar-brand" href="index.jsp">EstiaSeek</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-            <a class="nav-link" href="candidate_search.html">Search for Professionals</a>
+            <a class="nav-link" href="candidate_search.jsp">Search for Professionals</a>
             </li>
           </ul>
           </div>
@@ -47,12 +47,12 @@
                 <div class="signin-content">
                     <div class="signin-image">
                         <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
-                        <a href="signup_applicant.html" class="signup-image-link">Create an account</a>
+                        <a href="signup_applicant.jsp" class="signup-image-link">Create an account</a>
                     </div>
 
                     <div class="signin-form">
                         <h2 class="form-title">Log in</h2>
-                        <form method="POST" class="register-form" id="login-form">
+                        <form method="POST" class="register-form" id="login-form" action="login_controller.jsp">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="your_name" id="your_name" placeholder="Your Name" />
@@ -66,10 +66,15 @@
                                 <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember
                                     me</label>
                             </div>
+
                             <div class="form-group form-button">
-                                <a class="form-submit" type="submit" href="company_profile.html">Log in</a>
-                                <!-- <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" /> -->
+                                <input type="submit" name="login" id="login" class="form-submit" value="Log in" />
                             </div>
+
+                            <% if(request.getAttribute("message") != null) { %>		
+                                <div class="alert alert-danger text-center" role="alert"><%=(String)request.getAttribute("message") %></div>
+                            <% } %>
+
                         </form>
                     </div>
                 </div>
