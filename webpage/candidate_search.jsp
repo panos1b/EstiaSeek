@@ -85,7 +85,7 @@
 
                     <div class="signin-form">
                         <h2 class="form-title" style="font-size: x-large;">Search for Candidates</h2>
-                        <form method="POST" class="register-form" id="login-form" style="text-align: center;">
+                        <form action="<%=request.getContextPath() %>/candidate_list.jsp" method="get" class="register-form" style="text-align: center;">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="your_job_title" id="your_job_title" placeholder="Job Title"/>
@@ -117,8 +117,7 @@
                           </div>
 
                             <div class="form-group form-button">
-                              <a type="submit" class="form-submit" href="candidate_list.jsp">Search</a>   
-                              <!-- <input type="submit" name="submi_form" id="submi_form" class="form-submit" value="Search"/> -->
+                              <input type="submit" name="submi_form" id="submi_form" class="form-submit" value="Search"/>
                             </div>
                         </form>
                         </div>
