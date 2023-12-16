@@ -25,7 +25,7 @@ if (name.length() >= 1 && password.length() >= 8 && confirm.equals(password) && 
         request.setAttribute("message", e.getMessage());
 
         // Redirect to signup_applicant.jsp if the conditions are not met
-        request.getRequestDispatcher("signup_applicant.jsp").forward(request, response);
+        request.getRequestDispatcher("signup_employer.jsp").forward(request, response);
     }
 } else {
 
