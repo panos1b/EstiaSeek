@@ -28,7 +28,6 @@ if (username != null && password != null) {
         }
     } catch (Exception e) {
         request.setAttribute("message", "Error");
-        // Handle the error, show an error message, or redirect to an error page
     }
 }
 %>
