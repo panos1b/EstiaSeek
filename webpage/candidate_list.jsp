@@ -1,11 +1,25 @@
 <!DOCTYPE html>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.stream.Stream"%>
 <%@ page import="vscode_ismgroup39.*" %>
 <%@ page import="java.util.ArrayList" %>
 <%
-    String jobTitle = request.getParameter("your_job_title");
+    String username = request.getParameter("username");
     String location = request.getParameter("location");
     String experienceLevel = request.getParameter("experience_level");
-    ArrayList<Applicant> matchingApplicants = Applicant.getMatches(jobTitle, location, experienceLevel); //Get matching canidates
+        if( username == null || username.equals("null") ){
+            username="";
+        }
+        if(location == null || location.equals("null")){
+            location="";
+        }
+        if(experienceLevel == null ||experienceLevel.equals("null")){
+            experienceLevel="";
+        }else if(experienceLevel.equals("any")){
+            experienceLevel="%";
+        } 
+
+    ArrayList<Applicant> matchingApplicants = Applicant.getMatches(username, location, experienceLevel); //Get matching canidates
 %>
 <html lang="en">
     <head>
@@ -28,7 +42,6 @@
 
     </head>
     <body>
-
         <header>
             <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar-signed-in">
                 <div class="container-fluid">
@@ -92,11 +105,13 @@
                 </tr>
             </thead>
             <% Applicant applicant = null;
-                for (int i = 0; i < matchingApplicants.size(); i++) {
-                    applicant = matchingApplicants.get(i);%>
-            <tbody>
-                <tr>
-                    <th scope="row"><%= i + 1%></th>
+            Iterator<Applicant> iterator = matchingApplicants.iterator();
+            int i=1;
+            while(iterator.hasNext()){
+             applicant = iterator.next(); ;%>
+            <tbody> 
+               <tr>
+                    <th scope="row"><%= i++%></th>
                     <td><a href="applicant_profile.jsp?username="<%= applicant.getUsername()%>"><%= applicant.getUsername()%></a></td>
                     <td><%= applicant.getBio()%></td>
                     <td><%= applicant.getEmail()%></td>
