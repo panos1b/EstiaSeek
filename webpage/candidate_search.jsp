@@ -85,23 +85,24 @@
 
                     <div class="signin-form">
                         <h2 class="form-title" style="font-size: x-large;">Search for Candidates</h2>
-                        <form action="<%=request.getContextPath() %>/candidate_list.jsp" method="get" class="register-form" style="text-align: center;">
+                        <form action="<%=request.getContextPath() %>/candidate_list.jsp" method="POST" class="register-form" style="text-align: center;">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="your_job_title" id="your_job_title" placeholder="Job Title"/>
+                                <input type="text" name="username" id="your_job_title" placeholder="Username"/>
                             </div>
 
                             <div class="form-group" style="margin-top: 12%;">
                               <label for="location"><i class="fas fa-map-marker-alt"></i></label> 
                               <select id="location"  type="location" name="location" >
                                   <option  value="" disabled selected>Location</option>
-                                  <option value="agion oros">Agion Oros</option>
-                                  <option value="attica">Attica</option>
-                                  <option value="crete">Crete</option>
-                                  <option value="epirus-western macedonia">Epirus-Western Macedonia</option>
-                                  <option value="macedonia-thrace">Macedonia - Thrace</option>
-                                  <option value="peloponisos-w. greece & ionian, egean">Peloponisos-W. Greece & Ionian, Egean</option>
-                                  <option value="thessalia-central greece">Thessalia-Central Greece</option>
+                                    <option value="attica">Attica</option>
+                                    <option value="makedonia-thraki">Macedonia and Thrace</option>
+                                    <option value="epirus-makedonia">Epirus and Western Macedonia</option>
+                                    <option value="thessalia-central">Thessaly and Central Greece</option>
+                                    <option value="peloponisos-w">Peloponnese and Western Greece</option>
+                                    <option value="aegean">Aegean</option>
+                                    <option value="crete">Crete</option>
+                                    <option value="mount-athos">Monastic community of Mount Athos</option>
                               </select>
                             </div>
 

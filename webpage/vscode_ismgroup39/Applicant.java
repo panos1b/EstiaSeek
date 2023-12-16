@@ -47,13 +47,13 @@ public class Applicant extends User {
     public static ArrayList<Applicant> getMatches(String jobTitle, String location, String experienceLevel) {
         Connection con;
         JdbcManager db = new JdbcManager();
-        ArrayList<Applicant> matchedApplicants = new ArrayList<Applicant>();
-
+        ArrayList<Applicant> matchedApplicants = new ArrayList<>();
+       
         try {
             con = db.getConnection();
-            PreparedStatement stmt = con.prepareStatement("SELECT * FROM users RIGHT JOIN applicants ON users.User_ID=applicants.User_ID  WHERE Name=? AND Location=? AND Experience=?");
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM users RIGHT JOIN applicants ON users.User_ID=applicants.User_ID  WHERE Name LIKE ? AND Location LIKE ? AND Experience LIKE ?");
 
-            stmt.setString(1, jobTitle);
+            stmt.setString(1, "%"+jobTitle+"%");
             stmt.setString(2, location);
             stmt.setString(3, experienceLevel);
 
