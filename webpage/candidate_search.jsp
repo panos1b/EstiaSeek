@@ -94,7 +94,8 @@
                             <div class="form-group" style="margin-top: 12%;">
                               <label for="location"><i class="fas fa-map-marker-alt"></i></label> 
                               <select id="location"  type="location" name="location" >
-                                  <option  value="" disabled selected>Location</option>
+                                    <option  value="" disabled selected>Location</option>
+                                    <option  value="">Any</option>
                                     <option value="attica">Attica</option>
                                     <option value="makedonia-thraki">Macedonia and Thrace</option>
                                     <option value="epirus-makedonia">Epirus and Western Macedonia</option>
