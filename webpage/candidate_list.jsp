@@ -50,7 +50,7 @@
         if (user == null) {
         %>
 
-        <%@ include file="employer_navbar_not_signed_in.jsp" %>
+        <%@ include file="navbar_not_signed_in.jsp" %>
 
         <%
         } else {
@@ -96,6 +96,5 @@
         </table>
     </div>
 
-    <script src="js/signedInCheck.js"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

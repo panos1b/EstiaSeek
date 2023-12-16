@@ -33,7 +33,7 @@
     if (user == null) {
     %>
 
-    <%@ include file="employer_navbar_not_signed_in.jsp" %>
+    <%@ include file="navbar_not_signed_in.jsp" %>
 
     <%
     } else {
