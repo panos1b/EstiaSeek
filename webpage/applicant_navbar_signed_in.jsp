@@ -16,7 +16,7 @@
               </li>
             </ul>
             <form class="d-flex" role="login-signup">
-              <a class="btn btn-outline-success" style = "background-color:rgba(203, 207, 211, 0.188); color: black; border-color: black;" type="signout" href="login.jsp">Sign out</a>
+              <a class="btn btn-outline-success" style = "background-color:rgba(203, 207, 211, 0.188); color: black; border-color: black;" type="signout" href="sign_out.jsp">Sign out</a>
             </form>
           </div>
         </div>
