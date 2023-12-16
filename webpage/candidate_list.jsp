@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.stream.Stream"%>
 <%@ page import="vscode_ismgroup39.*" %>
@@ -42,54 +43,24 @@
 
     </head>
     <body>
-        <header>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar-signed-in">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="index.jsp">EstiaSeek</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" href="company_profile.jsp">Profile</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="candidate_search.jsp">Search for Candidates</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="job_posting.jsp">Post a Job</a>
-                            </li>
-                        </ul>
-                        <form class="d-flex" role="login-signup">
-                            <a class="btn btn-outline-success" style = "background-color:rgba(203, 207, 211, 0.188); color: black; border-color: black;" type="signout" href="login.jsp">Sign out</a>
-                        </form>
-                    </div>
-                </div>
-            </nav>
+        
+        <%
+        User user = (User) session.getAttribute("userObj");
+        
+        if (user == null) {
+        %>
 
-            <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar-not-signed-in">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="index.jsp">EstiaSeek</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" href="candidate_search.jsp">Search for Professionals</a>
-                            </li>
-                        </ul>
-                        <form class="d-flex" role="login-signup">
-                            <a class="btn btn-outline-success" style = "background-color: white; color: black; border-color: black; margin-right: 5px;" id="signin-btn" style="margin-right: 10px;" type="signin" href="login.jsp">Sign in</a>
+            <%@ include file="navbar_not_signed_in.jsp" %>
 
-                            <a class="btn btn-outline-success" style = "background-color:darkgray; color: white; border-color: black;" type="signup" href="signup_applicant.jsp">Sign up</a>
-                        </form>
-                    </div>
-                </div>
-            </nav>
-        </header>
-    </header>
+        <%
+        } else {
+        %>
+
+            <%@ include file="employer_navbar_signed_in.jsp" %>
+
+        <%
+        }
+        %>
 
     <a class="btn btn-outline-success" style = "background-color:rgb(35, 35, 35); color: white; border-color: rgb(72, 69, 69); margin-left: 0.5cm; margin-top: 0.5cm;" type="signout" href="candidate_search.jsp">Edit Filters</a>
     <div class="container">
@@ -125,6 +96,5 @@
         </table>
     </div>
 
-    <script src="js/signedInCheck.js"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
