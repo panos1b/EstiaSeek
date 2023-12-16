@@ -93,7 +93,7 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Username</th>
-                <th scope="col">Job Title</th>
+                <th scope="col">Bio</th>
                 <th scope="col">Email</th>
                 <th scope="col">Experience</th>
                 <th scope="col">Location</th>
