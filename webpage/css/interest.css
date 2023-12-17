@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.navbar {
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    z-index: 1000;
+}
+
+body{
+    background: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 56px;
+}
+
+.container{
+    margin-top: 20px;
+    width: 1200px;
+}
+
+.card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 30px;
+    padding-top: 20px;
+}
+
+.card{
+    position: relative;
+    background: #fff;
+    width: 350px;
+    box-shadow: 0 5px 25px rgba(2,2,2,0.25);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-content{
+    position: relative;
+    text-align: center;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-content .text{
+    position:relative;
+    font-size: 1.2em;
+    height: 100px;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+.centered-button {
+    text-align: center;
+}
+
+.card-content .text:before{
+    content:"";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #fff,transparent);
+    display: none;
+}
+
+.card.gradient .card-content .text:before{
+    display: block;
+}
+
+
+.see-more-btn{
+    font-size: .85em;
+    color: #777;
+    user-select: none;
+    cursor:pointer;
+    transition: color 0.3s ease;
+}
+
+.see-more-btn:hover{
+    color: #111;
+}
+
+.list-unstyled {
+    display: none; /* Initially hide the list */
+}
+
+.btn-success{
+    display: none;
+}
+
+@media screen and (max-width: 450px){
+    .card-container{
+        margin: 15px;
+    }
+
+    .card{
+        width: 100%;
+    }
+
+}
