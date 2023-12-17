@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,7 +40,7 @@
         </nav>
     </header>
 
-    <div class="main">
+    <div class="main" style="padding: 3%;">
 
         <!-- Sign up form -->
         <section class="signup">

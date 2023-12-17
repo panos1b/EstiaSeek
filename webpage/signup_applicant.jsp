@@ -36,7 +36,7 @@
         </nav>
     </header>
 
-    <div class="main">
+    <div class="main" style="padding: 2%;">
 
         <!-- Sign up form -->
         <section class="signup">
@@ -47,11 +47,11 @@
                         <form method="POST" class="register-form" id="register-form" action="signup_applicant_controller.jsp">
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="name" id="name" placeholder="Your Name" />
+                                <input type="text" name="name" id="name" placeholder="Username" />
                             </div>
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" placeholder="Your Email" />
+                                <input type="email" name="email" id="email" placeholder="Email" />
                             </div>
                             <div class="form-group">
                                 <label for="pass"><i class="zmdi zmdi-lock"></i></label>
@@ -84,7 +84,6 @@
                                 <label for="re-pass"><i class="zmdi zmdi-wrench"></i></label>
                                 <select id="experience" name="experience_level">
                                     <option value="" disabled selected>Experience Level</option>
-                                    <option value="any">Any</option>
                                     <option value="entry">Entry Level</option>
                                     <option value="intermediate">Intermediate</option>
                                     <option value="senior">Senior</option>
@@ -93,7 +92,7 @@
 
                             <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                             <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree to all
-                                statements in <a href="tos.jsp" class="term-service">Terms of service</a></label>
+                                statements in <a href="tos.jsp" class="term-service">Terms of Service</a></label>
 
                              <div class="form-group form-button">
                                 <input type="submit" name="signup" id="signup" class="form-submit" value="Register" />

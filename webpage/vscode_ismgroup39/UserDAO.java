@@ -20,6 +20,9 @@ public class UserDAO {
     private static final String findEmployerQuery = "SELECT * FROM employers WHERE User_ID=?;";
     private static final String findApplicantQuery = "SELECT * FROM applicants WHERE User_ID=?;";
 
+    // Query for user search
+    private static final String findUserByUsernameQuery = "SELECT * FROM users WHERE Name=?";
+
     /**
      * Creates a new employer in the database.
      *
@@ -35,6 +38,11 @@ public class UserDAO {
         JdbcManager db = new JdbcManager();
 
         try {
+
+            if (findUser(name) == true) {
+                throw new Exception("This username already exists. Please try another one.");
+            }
+
             con = db.getConnection();
             PreparedStatement stmt = con.prepareStatement(newUserQuery, Statement.RETURN_GENERATED_KEYS);
 
@@ -61,6 +69,8 @@ public class UserDAO {
             }
 
             generatedKeys.close();
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
         } finally {
             db.close();
         }
@@ -82,6 +92,11 @@ public class UserDAO {
         JdbcManager db = new JdbcManager();
 
         try {
+
+            if (findUser(name) == true) {
+                throw new Exception("This username already exists. Please try another one.");
+            }
+
             con = db.getConnection();
             PreparedStatement stmt = con.prepareStatement(newUserQuery, Statement.RETURN_GENERATED_KEYS);
 
@@ -109,10 +124,57 @@ public class UserDAO {
             }
 
             generatedKeys.close();
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
         } finally {
             db.close();
         }
     }
+
+    /**
+	 * Search user by username
+	 * 
+	 * @param username, String
+	 * @return User, the User object or null
+	 * @throws Exception
+	 */
+	public static boolean findUser(String username) throws Exception {
+
+		Connection con = null;
+		JdbcManager db = new JdbcManager();
+
+		try {
+
+			con = db.getConnection();
+			PreparedStatement stmt = con.prepareStatement(findUserByUsernameQuery);
+			stmt.setString(1, username);
+
+			ResultSet rs = stmt.executeQuery();
+
+			if (rs.next()) {
+                return true;
+			}
+
+			con.close();
+			stmt.close();
+			rs.close();
+			db.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+
+			try {
+				db.close();
+			} catch (Exception e) {
+				// Handle exception
+				e.printStackTrace();
+			}
+		}
+		
+		return false;
+
+	} //End of findUser
 
     /**
      * Authenticates a user based on the provided username and password.
