@@ -28,20 +28,30 @@
 
   <%
     User user = (User) session.getAttribute("userObj");
-    // Employer signed in
-    if (user instanceof Employer) {
-        // Employer signed in
+
+    if (user == null) {
+        // User not signed in
         %>
-        <%@ include file="employer_navbar_signed_in.jsp" %>
+        <%@ include file="navbar_not_signed_in.jsp" %>
         <%
-  
+
     } else {
-        // Applicant signed in
-        %>
-        <%@ include file="applicant_navbar_signed_in.jsp" %>
-        <%
+
+        // User signed in
+        if (user instanceof Employer) {
+            // Employer signed in
+            %>
+            <%@ include file="employer_navbar_signed_in.jsp" %>
+            <%
+			
+        } else {
+            // Applicant signed in
+            %>
+            <%@ include file="applicant_navbar_signed_in.jsp" %>
+            <%
+        }
     }
-  %>
+	%>
 
     <div class="main" style="padding: 3%;">
         <section class="Profile-Details">
