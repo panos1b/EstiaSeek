@@ -47,7 +47,7 @@
             <div class="container">
                 <div class="signup-content">
                     <div class="signup-image">
-                        <figure><img src="images/vecteezy_desk-with-laptop-books-plants-and-chair-vector-design_.jpg" alt="sing up image"></figure>
+                        <figure><img src="emp.png" alt="sing up image"></figure>
                         <br>
                         <a href="signup_applicant.jsp" class="signup-image-link">I am an Applicant</a>
                         <a href="login.jsp" class="signup-image-link">I am already member</a>

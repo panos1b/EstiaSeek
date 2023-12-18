@@ -104,7 +104,7 @@
                         </form>
                     </div>
                     <div class="signup-image">
-                        <figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
+                        <figure><img src="images/signup-image.png" alt="sing up image"></figure>
                         <a href="signup_employer.jsp" class="signup-image-link">I am an Employer</a>
                         <a href="login.jsp" class="signup-image-link">I am already member</a>
                     </div>
