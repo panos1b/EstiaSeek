@@ -70,7 +70,7 @@
                     </div>
                     <div class="user-profile-image" style="margin-top: 50px;">
                         <figure>
-                            <img src="images/signup-image.jpg" alt="User Profile Image">
+                            <img src="images/signup-image.png" alt="User Profile Image">
                         </figure>
                     </div>                
                 </div>
