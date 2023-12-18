@@ -48,7 +48,7 @@ cards.forEach((card) => {
 const closeButton = document.getElementById("closeButton");
 
 function redirectShowInterestPage() {
-    window.location.href = "show_interest3.jsp";
+    window.location.href = "show_interest.jsp";
 }
 
 closeButton.addEventListener("click", redirectShowInterestPage);
