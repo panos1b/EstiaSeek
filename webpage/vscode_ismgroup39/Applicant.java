@@ -5,11 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Applicant extends User {
 
     private String experience;
     private String location;
+    private final List<Application> applications=new ArrayList<>();
 
     /**
      * Full constructor for Applicant
@@ -42,6 +44,18 @@ public class Applicant extends User {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+    
+    public  void addApplication(Application application){
+        applications.add(application);
+    }
+    
+    public void removeApplication(Application application){
+        applications.remove(application);
+    }
+
+    public List<Application> getApplications(){
+        return applications;
     }
 
     public static ArrayList<Applicant> getMatches(String username, String location, String experienceLevel) {
