@@ -47,7 +47,7 @@
             <div class="container">
                 <div class="signup-content">
                     <div class="signup-image">
-                        <figure><img src="emp.png" alt="sing up image"></figure>
+                        <figure><img src="images\emp.png" alt="sing up image"></figure>
                         <br>
                         <a href="signup_applicant.jsp" class="signup-image-link">I am an Applicant</a>
                         <a href="login.jsp" class="signup-image-link">I am already member</a>

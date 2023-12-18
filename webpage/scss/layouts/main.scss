@@ -33,9 +33,6 @@ figure {
     @include border-radius(5px);
     margin-top: 25px;
     cursor: pointer;
-    &:hover {
-        background: darken($blue-color, 10%);
-    }
 }
 
 #signin {
