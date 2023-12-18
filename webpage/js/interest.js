@@ -21,6 +21,8 @@ window.onload = function() {
 cards.forEach((card) => {
     let seeMoreBtn = card.querySelector(".see-more-btn");
     let textContent = card.querySelector(".card-content .text");
+    let lista = card.querySelector(".list-unstyled")
+    let successBtn = card.querySelector(".btn-success")
 
     seeMoreBtn.addEventListener("click", () => {
         card.classList.toggle("active");
@@ -29,30 +31,19 @@ cards.forEach((card) => {
         if(card.classList.contains("active")) {
             seeMoreBtn.innerHTML = "See Less";
             textContent.style.height = textContent.scrollHeight + "px";
+            lista.style.display = 'block';
+            successBtn.style.display = 'block';
+
 
         } else {
             seeMoreBtn.innerHTML = "See More";
             textContent.style.height = "100px";
+            lista.style.display = 'none';
+            successBtn.style.display = 'none';
             
         }
     });
 });
-
-function toggleList() {
-    var list = document.querySelector('.list-unstyled');
-    if (list.style.display === 'none' || list.style.display === '') {
-        list.style.display = 'block';
-    } else {
-        list.style.display = 'none';
-    }
-    var list = document.querySelector('.btn-success');
-    if (list.style.display === 'none' || list.style.display === '') {
-        list.style.display = 'block';
-    } else {
-        list.style.display = 'none';
-    }
-    
-}
 
 const closeButton = document.getElementById("closeButton");
 
