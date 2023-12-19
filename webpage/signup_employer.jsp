@@ -40,14 +40,14 @@
 		  </nav>
 	</header>
 
-    <div class="main">
+    <div class="main" style="padding: 3%;">
 
         <!-- Sign up form -->
         <section class="signup">
             <div class="container">
                 <div class="signup-content">
                     <div class="signup-image">
-                        <figure><img src="images/vecteezy_desk-with-laptop-books-plants-and-chair-vector-design_.jpg" alt="sing up image"></figure>
+                        <figure><img src="images\emp.png" alt="sing up image"></figure>
                         <br>
                         <a href="signup_applicant.jsp" class="signup-image-link">I am an Applicant</a>
                         <a href="login.jsp" class="signup-image-link">I am already member</a>
@@ -57,15 +57,15 @@
                         <form method="POST" class="register-form" id="register-form" action="signup_employer_controller.jsp">
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="name" id="name" placeholder="Your Name" />
+                                <input type="text" name="name" id="name" placeholder="Username" />
                             </div>
                             <div class="form-group">
                                 <label for="org_name"><i class="zmdi zmdi-balance "></i></label>
-                                <input type="text" name="org_name" id="org_name" placeholder="Your Organisation" />
+                                <input type="text" name="org_name" id="org_name" placeholder="Organisation" />
                             </div>
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" placeholder="Your Email" />
+                                <input type="email" name="email" id="email" placeholder="Email" />
                             </div>
                             <div class="form-group">
                                 <label for="pass"><i class="zmdi zmdi-lock"></i></label>
@@ -82,7 +82,7 @@
                             
                             <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                             <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree to all
-                                statements in <a href="tos.jsp" class="term-service">Terms of service</a></label>
+                                statements in <a href="tos.jsp" class="term-service">Terms of Service</a></label>
 
                             <div class="form-group form-button">
                                 <input type="submit" name="signup" id="signup" class="form-submit" value="Register" />

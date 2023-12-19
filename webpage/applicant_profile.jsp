@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="vscode_ismgroup39.*" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,29 +26,32 @@
 </head>
 <body>
 
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="index.jsp">EstiaSeek</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link" href="applicant_profile.jsp">Profile</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="search_job.jsp">Search for Jobs</a>
-                  </li>
-                </ul>
-                <form class="d-flex" role="login-signup">
-                  <a class="btn btn-outline-success" style = "background-color:rgba(203, 207, 211, 0.188); color: black; border-color: black;" type="signout" href="login.jsp">Sign out</a>
-                </form>
-              </div>
-            </div>
-        </nav>
-    </header>
+  <%
+    User user = (User) session.getAttribute("userObj");
+
+    if (user == null) {
+        // User not signed in
+        %>
+        <%@ include file="navbar_not_signed_in.jsp" %>
+        <%
+
+    } else {
+
+        // User signed in
+        if (user instanceof Employer) {
+            // Employer signed in
+            %>
+            <%@ include file="employer_navbar_signed_in.jsp" %>
+            <%
+			
+        } else {
+            // Applicant signed in
+            %>
+            <%@ include file="applicant_navbar_signed_in.jsp" %>
+            <%
+        }
+    }
+	%>
 
     <div class="main" style="padding: 3%;">
         <section class="Profile-Details">
@@ -64,7 +70,7 @@
                     </div>
                     <div class="user-profile-image" style="margin-top: 50px;">
                         <figure>
-                            <img src="images/signup-image.jpg" alt="User Profile Image">
+                            <img src="images/signup-image.png" alt="User Profile Image">
                         </figure>
                     </div>                
                 </div>
