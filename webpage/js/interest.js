@@ -53,10 +53,13 @@ function redirectShowInterestPage() {
 
 closeButton.addEventListener("click", redirectShowInterestPage);
 
-var interestBtn = document.getElementById("interestBtn");
-interestBtn.addEventListener("click", function(event) {
-event.preventDefault(); // prevent the default form submission
+var interestBtn = document.querySelectorAll(".btn-success");
 
-$('#staticBackdrop2').modal('show');
+interestBtn.forEach((button) => {
+    button.addEventListener("click", function(event) {
+    event.preventDefault(); // prevent the default form submission
 
+    $('#staticBackdrop2').modal('show');
+
+    });
 });
