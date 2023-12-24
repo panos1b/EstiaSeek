@@ -39,7 +39,7 @@ public class UserDAO {
 
         try {
 
-            if (findUser(name) == true) {
+            if (findUser(name) != null) {
                 throw new Exception("This username already exists. Please try another one.");
             }
 
@@ -93,7 +93,7 @@ public class UserDAO {
 
         try {
 
-            if (findUser(name) == true) {
+            if (findUser(name) != null) {
                 throw new Exception("This username already exists. Please try another one.");
             }
 
@@ -138,7 +138,7 @@ public class UserDAO {
 	 * @return User, the User object or null
 	 * @throws Exception
 	 */
-	public static boolean findUser(String username) throws Exception {
+	public static User findUser(String username) throws Exception {
 
 		Connection con = null;
 		JdbcManager db = new JdbcManager();
@@ -152,7 +152,36 @@ public class UserDAO {
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
-                return true;
+                int userId = rs.getInt("User_ID");
+                String name = rs.getString("Name");
+                String email = rs.getString("Email");
+                String userPassword = rs.getString("Password");
+                String bio = rs.getString("Bio");
+
+                // Check if the user is an employer
+                PreparedStatement employerStmt = con.prepareStatement(findEmployerQuery);
+                employerStmt.setInt(1, userId);
+                ResultSet employerRs = employerStmt.executeQuery();
+
+                if (employerRs.next()) {
+                    String org = employerRs.getString("Organization");
+                    return new Employer(userId, name, email, userPassword, bio, org);
+                }
+
+                employerRs.close();
+
+                // Check if the user is an applicant
+                PreparedStatement applicantStmt = con.prepareStatement(findApplicantQuery);
+                applicantStmt.setInt(1, userId);
+                ResultSet applicantRs = applicantStmt.executeQuery();
+
+                if (applicantRs.next()) {
+                    String experience = applicantRs.getString("Experience");
+                    String location = applicantRs.getString("Location");
+                    return new Applicant(userId, name, email, userPassword, bio, experience, location);
+                }
+
+                applicantRs.close();
 			}
 
 			con.close();
@@ -172,7 +201,7 @@ public class UserDAO {
 			}
 		}
 		
-		return false;
+		return null;
 
 	} //End of findUser
 
