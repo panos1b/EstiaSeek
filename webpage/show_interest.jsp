@@ -43,23 +43,8 @@
                         <li>Salary: 1000$</li>
                     </ul>    
                   </div>
-                  <button type="button" id="interestBtn" class="btn btn-success">Interested</button>
+                  <button type="button" id="interestBtn" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop2">Interested</button>
                   <br>
-                  <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel"><b style="color: rgb(13, 122, 40);">Great news! </b></h1>
-                      </div>
-                      <div class="modal-body">
-                      <b>Congratulations, you submitted your interest succesfully!</b>
-                      </div>
-                      <div class="modal-footer">
-                      <button id="closeButton" type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                      </div>
-                    </div>
-                    </div>
-                  </div>
                 <span class="see-more-btn"> See more</span>
             </div> 
         </div>
@@ -76,23 +61,8 @@
                       <li>Salary: 1000$</li>
                   </ul>    
                 </div>
-                <button type="button" id="interestBtn" class="btn btn-success">Interested</button>
+                <button type="button" id="interestBtn" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop2">Interested</button>
                 <br>
-                <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="staticBackdropLabel"><b style="color: rgb(13, 122, 40);">Great news! </b></h1>
-                    </div>
-                    <div class="modal-body">
-                    <b>Congratulations, you submitted your interest succesfully!</b>
-                    </div>
-                    <div class="modal-footer">
-                    <button id="closeButton" type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                  </div>
-                  </div>
-                </div>
               <span class="see-more-btn"> See more</span>
           </div> 
       </div>
@@ -109,23 +79,8 @@
                         <li>Salary: 1000$</li>
                     </ul>    
                   </div>
-                  <button type="button" id="interestBtn" class="btn btn-success">Interested</button>
+                  <button type="button" id="interestBtn" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop2">Interested</button>
                   <br>
-                  <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel"><b style="color: rgb(13, 122, 40);">Great news! </b></h1>
-                      </div>
-                      <div class="modal-body">
-                      <b>Congratulations, you submitted your interest succesfully!</b>
-                      </div>
-                      <div class="modal-footer">
-                      <button id="closeButton" type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                      </div>
-                    </div>
-                    </div>
-                  </div>
                 <span class="see-more-btn"> See more</span>
             </div> 
         </div>
@@ -142,49 +97,9 @@
                       <li>Salary: 1000$</li>
                   </ul>    
                 </div>
-                <button type="button" id="interestBtn" class="btn btn-success">Interested</button>
+                <button type="button" id="interestBtn" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop2">Interested</button>
                 <br>
-                <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="staticBackdropLabel"><b style="color: rgb(13, 122, 40);">Great news! </b></h1>
-                    </div>
-                    <div class="modal-body">
-                    <b>Congratulations, you submitted your interest succesfully!</b>
-                    </div>
-                    <div class="modal-footer">
-                    <button id="closeButton" type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                  </div>
-                  </div>
-                </div>
-                  <div class="row">
-                    <ul class="list-unstyled">
-                        <li>Experience Required: Bob </li>
-                        <li>Business Name: Jakson</li>
-                        <li>Salary: 1000$</li>
-                    </ul>    
-                  </div>
-                  <button type="button" id="interestBtn" class="btn btn-success">Interested</button>
-                  <br>
-                  <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel"><b style="color: rgb(13, 122, 40);">Great news! </b></h1>
-                      </div>
-                      <div class="modal-body">
-                      <b>Congratulations, you submitted your interest succesfully!</b>
-                      </div>
-                      <div class="modal-footer">
-                      <button id="closeButton" type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                      </div>
-                    </div>
-                    </div>
-                  </div>
-                      
-              <span class="see-more-btn" onclick="toggleList()"> See more</span>
+              <span class="see-more-btn"> See more</span>
 
           </div>  
       </div>
@@ -201,23 +116,8 @@
                     <li>Salary: 1000$</li>
                 </ul>    
               </div>
-              <button type="button" id="interestBtn" class="btn btn-success">Interested</button>
+              <button type="button" id="interestBtn" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop2">Interested</button>
               <br>
-              <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel"><b style="color: rgb(13, 122, 40);">Great news! </b></h1>
-                  </div>
-                  <div class="modal-body">
-                  <b>Congratulations, you submitted your interest succesfully!</b>
-                  </div>
-                  <div class="modal-footer">
-                  <button id="closeButton" type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                  </div>
-                </div>
-                </div>
-              </div>
             <span class="see-more-btn"> See more</span>
         </div>  
     </div>
@@ -234,23 +134,8 @@
                   <li>Salary: 1000$</li>
               </ul>    
             </div>
-            <button type="button" id="interestBtn" class="btn btn-success">Interested</button>
+            <button type="button" id="interestBtn" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop2">Interested</button>
             <br>
-            <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="staticBackdropLabel"><b style="color: rgb(13, 122, 40);">Great news! </b></h1>
-                </div>
-                <div class="modal-body">
-                <b>Congratulations, you submitted your interest succesfully!</b>
-                </div>
-                <div class="modal-footer">
-                <button id="closeButton" type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                </div>
-              </div>
-              </div>
-            </div>
           <span class="see-more-btn"> See more</span>
       </div>  
   </div>
@@ -267,26 +152,28 @@
                 <li>Salary: 1000$</li>
             </ul>    
           </div>
-          <button type="button" id="interestBtn" class="btn btn-success">Interested</button>
+          <button type="button" id="interestBtn" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop2">Interested</button>
           <br>
-          <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel"><b style="color: rgb(13, 122, 40);">Great news! </b></h1>
-              </div>
-              <div class="modal-body">
-              <b>Congratulations, you submitted your interest succesfully!</b>
-              </div>
-              <div class="modal-footer">
-              <button id="closeButton" type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-              </div>
-            </div>
-            </div>
-          </div>
         <span class="see-more-btn"> See more</span>
     </div>  
   </div>
+
+  <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel"><b style="color: rgb(13, 122, 40);">Great news! </b></h1>
+        </div>
+        <div class="modal-body">
+        <b>Congratulations, you submitted your interest succesfully!</b>
+        </div>
+        <div class="modal-footer">
+        <button id="closeButton" type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   </div>
 </div>
 
@@ -297,6 +184,7 @@
 
 
     <script src="js/interest.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
