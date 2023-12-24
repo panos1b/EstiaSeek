@@ -27,6 +27,7 @@
 <body>
 
   <%
+    Applicant profileUser = null;
     User user = (User) session.getAttribute("userObj");
 
     if (user == null) {
@@ -51,7 +52,14 @@
             <%
         }
     }
-	%>
+
+    if (request.getParameter("username") != null) {
+        String usernameParameter = request.getParameter("username");
+        profileUser = (Applicant) UserDAO.findUser(usernameParameter);
+    } else {
+        profileUser = (Applicant) user;
+    }
+    %>
 
     <div class="main" style="padding: 3%;">
         <section class="Profile-Details">
@@ -60,12 +68,11 @@
                     <div class="user-profile-details">
                         <h2 class="profile-title" style="margin-bottom: 20px;">Applicant Profile</h2>
                         <div class="profile-details">
-                            <p><strong>Name:</strong> <span id="name">Panagiotis Daskalopoulos</span> </p>
-                            <p><strong>Location:</strong> <span id="location">Agion Oros</span></p>
-                            <p><strong>Email:</strong> <span id="email">panos1b@catering.com</span></p>
-                            <p><strong>Experience Level:</strong> <span id="experience">Intermediate</span></p>
-                            <p style="margin-top: 10px;"><strong>Bio:</strong> <span id="bio">As a dedicated and passionate waiter with a commitment to providing exceptional customer service, I am excited to contribute my skills and experience to your team. With a proven track record in the hospitality industry, I am confident in my ability to enhance the dining experience for your valued patrons. <br>
-                                My journey in the world of hospitality began over five years ago, and I have since developed a deep understanding of the art of serving. I have honed my abilities to anticipate the needs of guests and ensure their comfort and satisfaction throughout their dining experience. With a warm and welcoming demeanor, I pride myself on creating a friendly and inviting atmosphere for all guests, making them feel truly valued.</span></p>
+                            <p><strong>Name:</strong> <span id="name"><%= profileUser.getUsername() %></span> </p>
+                            <p><strong>Location:</strong> <span id="location"><%= profileUser.getLocation() %></span></p>
+                            <p><strong>Email:</strong> <span id="email"><%= profileUser.getEmail() %></span></p>
+                            <p><strong>Experience Level:</strong> <span id="experience"><%= profileUser.getExperience() %></span></p>
+                            <p style="margin-top: 10px;"><strong>Bio:</strong> <span id="bio"><%= profileUser.getBio() %></span></p>
                         </div>
                     </div>
                     <div class="user-profile-image" style="margin-top: 50px;">
