@@ -83,7 +83,7 @@
             <tbody> 
                <tr>
                     <th scope="row"><%= i++%></th>
-                    <td><a href="applicant_profile.jsp?username="<%= applicant.getUsername()%>"><%= applicant.getUsername()%></a></td>
+                    <td><a href="applicant_profile.jsp?username=<%= applicant.getUsername()%>"><%= applicant.getUsername()%></a></td>
                     <td><%= applicant.getBio()%></td>
                     <td><%= applicant.getEmail()%></td>
                     <td><%= applicant.getExperience()%></td>
