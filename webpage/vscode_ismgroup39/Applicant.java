@@ -60,13 +60,13 @@ public class Applicant extends User {
 
     public static ArrayList<Applicant> getMatches(String username, String location, String experienceLevel) {
         /**
-         * Returns applicants who match the criteria. If some criteria is empty its ignored and remaining matches 
+         * Returns applicants who match the criteria. If some criteria is empty its ignored and remaining matches
          * are returned
          */
         Connection con;
         JdbcManager db = new JdbcManager();
         ArrayList<Applicant> matchedApplicants = new ArrayList<>();
-       
+
         try {
             con = db.getConnection();
             StringBuilder queryBuilder = new StringBuilder("SELECT * FROM users RIGHT JOIN applicants ON users.User_ID=applicants.User_ID WHERE 1=1");
