@@ -9,6 +9,7 @@ import java.util.HashMap;
 /**
  *
  * @author Panos Dask
+ * @author Vaggelis Talos
  */
 public class ApplicationDAO {
      // Queries for user Application Gathering
@@ -41,5 +42,28 @@ public class ApplicationDAO {
             db.close();
         }
         
+    }
+
+    private static final String deleteApplication = "DELETE FROM applications WHERE Applicant_ID=?";
+
+    public static void deleteApplication(int removeID) throws Exception {
+        Connection con = null;
+        JdbcManager db = new JdbcManager();
+
+        try {
+
+            con = db.getConnection();
+            PreparedStatement stmt = con.prepareStatement(deleteApplication);
+
+            // Set value to parameter
+            stmt.setInt(1, removeID);
+
+            stmt.executeUpdate();
+
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        } finally {
+            db.close();
+        }
     }
 }
