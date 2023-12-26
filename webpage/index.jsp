@@ -119,6 +119,10 @@
 		</div>
 	</section>
 
+	<%
+	if (user == null) {
+	%>
+
 	<div class="accordion" id="accordionExample">
 		<div class="container" style="padding: 20px; width: auto;">
 		  <h2 class="accordion-header">
@@ -134,6 +138,10 @@
 		  </div>
 		</div>
 	</div>
+
+	<%
+	}
+	%>
 	
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
