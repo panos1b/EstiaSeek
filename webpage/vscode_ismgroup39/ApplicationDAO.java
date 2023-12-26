@@ -16,8 +16,8 @@ public class ApplicationDAO {
     private static final String setApplicationsOfJob = ""
             + "SELECT applicants.User_ID FROM applicants "
             + "LEFT JOIN applications ON applicants.User_ID=applications.Applicant_ID "
-            + "LEFT JOIN job_possitions ON job_possitions.Job_ID=applications.Job_ID "
-            + "WHERE job_possitions.Job_ID=?";
+            + "LEFT JOIN job_positions ON job_positions.Job_ID=applications.Job_ID "
+            + "WHERE job_positions.Job_ID=?";
     
     public static void setApplicationsOfJob(HashMap<Integer,Applicant> applicantMap, JobPosition jobPosition) throws Exception{
         Connection con = null;
