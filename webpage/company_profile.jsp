@@ -109,8 +109,20 @@
                 <th scope="col"> </th>
               </tr>
             </thead>
-            <tbody> 
-<% 
+            <tbody>
+
+<%              String applicantIDParameter = request.getParameter("applicantID");
+
+                if (applicantIDParameter != null && !applicantIDParameter.isEmpty()) {
+                  try {
+                    int removeID = Integer.parseInt(applicantIDParameter);
+                    ApplicationDAO.deleteApplication(removeID);
+                    response.sendRedirect("company_profile.jsp");
+                  } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                  }
+                }
+
                 for(JobPosition jobPosition : jobPositions){
                     List<Application> applications = jobPosition.getApplications();
                     for(Application currentApplication : applications){
@@ -124,8 +136,12 @@
                 <td><%= currentApplication.getApplicant().getExperience()%></td>
                 <td><%= currentApplication.getApplicant().getLocation()%></td>
                 <td><%= currentApplication.getJobPosition().getJobID() %></td>
-                <td> <button type="button" class="btn btn-sm" style="border-color: black;">Remove Applicant</button>
-                </td>
+                <td>
+                  <form action="company_profile.jsp" method="post">
+                      <input type="hidden" name="applicantID" value="<%= currentApplication.getApplicant().getUserID()%>">
+                      <button type="submit" class="btn btn-sm" style="border-color: black;">Remove Applicant</button>
+                  </form>
+              </td>
               </tr>
               <%
                   }
