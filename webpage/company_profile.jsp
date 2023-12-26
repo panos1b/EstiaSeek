@@ -111,12 +111,26 @@
             </thead>
             <tbody>
 
-<%              String applicantIDParameter = request.getParameter("applicantID");
+<%              // Remove an application
+                String applicantIDParameter = request.getParameter("applicantID");
 
                 if (applicantIDParameter != null && !applicantIDParameter.isEmpty()) {
                   try {
                     int removeID = Integer.parseInt(applicantIDParameter);
                     ApplicationDAO.deleteApplication(removeID);
+                    response.sendRedirect("company_profile.jsp");
+                  } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                  }
+                }
+                
+                // Delete a job position
+                String jobIDParameter = request.getParameter("JobID");
+
+                if (jobIDParameter != null && !jobIDParameter.isEmpty()) {
+                  try {
+                    int deleteID = Integer.parseInt(jobIDParameter);
+                    JobPositionDAO.deleteJobPosition(deleteID);
                     response.sendRedirect("company_profile.jsp");
                   } catch (NumberFormatException e) {
                     e.printStackTrace();
@@ -173,7 +187,12 @@
                 <th scope="row"><%= jobPosition.getJobID()%> </th>
                 <td><%= jobPosition.getDescription()%></td>
                 <td><%= jobPosition.getLevel()%></td>
-                <td> <button type="button" class="btn btn-danger btn-sm">Delete</button> </td>
+                <td>
+                  <form action="company_profile.jsp" method="post">
+                    <input type="hidden" name="JobID" value="<%= jobPosition.getJobID()%>">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                  </form>
+                </td>
               </tr>
               <% 
                   }
