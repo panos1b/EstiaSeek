@@ -113,11 +113,14 @@
 
 <%              // Remove an application
                 String applicantIDParameter = request.getParameter("applicantID");
+                String positionIDParameter = request.getParameter("PositionID");
 
                 if (applicantIDParameter != null && !applicantIDParameter.isEmpty()) {
                   try {
-                    int removeID = Integer.parseInt(applicantIDParameter);
-                    ApplicationDAO.deleteApplication(removeID);
+                    int applicantID = Integer.parseInt(applicantIDParameter);
+                    int positionID = Integer.parseInt(positionIDParameter);
+
+                    ApplicationDAO.deleteApplication(applicantID, positionID);
                     response.sendRedirect("company_profile.jsp");
                   } catch (NumberFormatException e) {
                     e.printStackTrace();
@@ -153,6 +156,7 @@
                 <td>
                   <form action="company_profile.jsp" method="post">
                       <input type="hidden" name="applicantID" value="<%= currentApplication.getApplicant().getUserID()%>">
+                      <input type="hidden" name="PositionID" value="<%= currentApplication.getJobPosition().getJobID()%>">
                       <button type="submit" class="btn btn-sm" style="border-color: black;">Remove Applicant</button>
                   </form>
               </td>
