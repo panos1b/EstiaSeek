@@ -109,8 +109,37 @@
                 <th scope="col"> </th>
               </tr>
             </thead>
-            <tbody> 
-<% 
+            <tbody>
+
+<%              // Remove an application
+                String applicantIDParameter = request.getParameter("applicantID");
+                String positionIDParameter = request.getParameter("PositionID");
+
+                if (applicantIDParameter != null && !applicantIDParameter.isEmpty()) {
+                  try {
+                    int applicantID = Integer.parseInt(applicantIDParameter);
+                    int positionID = Integer.parseInt(positionIDParameter);
+
+                    ApplicationDAO.deleteApplication(applicantID, positionID);
+                    response.sendRedirect("company_profile.jsp");
+                  } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                  }
+                }
+                
+                // Delete a job position
+                String jobIDParameter = request.getParameter("JobID");
+
+                if (jobIDParameter != null && !jobIDParameter.isEmpty()) {
+                  try {
+                    int deleteID = Integer.parseInt(jobIDParameter);
+                    JobPositionDAO.deleteJobPosition(deleteID);
+                    response.sendRedirect("company_profile.jsp");
+                  } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                  }
+                }
+
                 for(JobPosition jobPosition : jobPositions){
                     List<Application> applications = jobPosition.getApplications();
                     for(Application currentApplication : applications){
@@ -124,8 +153,13 @@
                 <td><%= currentApplication.getApplicant().getExperience()%></td>
                 <td><%= currentApplication.getApplicant().getLocation()%></td>
                 <td><%= currentApplication.getJobPosition().getJobID() %></td>
-                <td> <button type="button" class="btn btn-sm" style="border-color: black;">Remove Applicant</button>
-                </td>
+                <td>
+                  <form action="company_profile.jsp" method="post">
+                      <input type="hidden" name="applicantID" value="<%= currentApplication.getApplicant().getUserID()%>">
+                      <input type="hidden" name="PositionID" value="<%= currentApplication.getJobPosition().getJobID()%>">
+                      <button type="submit" class="btn btn-sm" style="border-color: black;">Remove Applicant</button>
+                  </form>
+              </td>
               </tr>
               <%
                   }
@@ -157,7 +191,12 @@
                 <th scope="row"><%= jobPosition.getJobID()%> </th>
                 <td><%= jobPosition.getDescription()%></td>
                 <td><%= jobPosition.getLevel()%></td>
-                <td> <button type="button" class="btn btn-danger btn-sm">Delete</button> </td>
+                <td>
+                  <form action="company_profile.jsp" method="post">
+                    <input type="hidden" name="JobID" value="<%= jobPosition.getJobID()%>">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                  </form>
+                </td>
               </tr>
               <% 
                   }

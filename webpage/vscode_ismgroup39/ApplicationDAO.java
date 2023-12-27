@@ -9,14 +9,15 @@ import java.util.HashMap;
 /**
  *
  * @author Panos Dask
+ * @author Vaggelis Talos
  */
 public class ApplicationDAO {
      // Queries for user Application Gathering
     private static final String setApplicationsOfJob = ""
             + "SELECT applicants.User_ID FROM applicants "
             + "LEFT JOIN applications ON applicants.User_ID=applications.Applicant_ID "
-            + "LEFT JOIN job_possitions ON job_possitions.Job_ID=applications.Job_ID "
-            + "WHERE job_possitions.Job_ID=?";
+            + "LEFT JOIN job_positions ON job_positions.Job_ID=applications.Job_ID "
+            + "WHERE job_positions.Job_ID=?";
     
     public static void setApplicationsOfJob(HashMap<Integer,Applicant> applicantMap, JobPosition jobPosition) throws Exception{
         Connection con = null;
@@ -41,5 +42,29 @@ public class ApplicationDAO {
             db.close();
         }
         
+    }
+
+    private static final String deleteApplication = "DELETE FROM applications WHERE Applicant_ID=? AND Job_ID=?";
+
+    public static void deleteApplication(int applicantID, int positionID) throws Exception {
+        Connection con = null;
+        JdbcManager db = new JdbcManager();
+
+        try {
+
+            con = db.getConnection();
+            PreparedStatement stmt = con.prepareStatement(deleteApplication);
+
+            // Set value to parameter
+            stmt.setInt(1, applicantID);
+            stmt.setInt(2, positionID);
+
+            stmt.executeUpdate();
+
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        } finally {
+            db.close();
+        }
     }
 }

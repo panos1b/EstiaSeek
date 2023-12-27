@@ -11,12 +11,13 @@ import java.util.List;
 /**
  *
  * @author Panos Dask
+ * @author Vaggelis Talos
  */
 public class JobPositionDAO {
     //Query for Job Positions
     private static final String getJobPositionsOfEmployer =""
-            +"SELECT job_possitions.* FROM job_possitions "
-            + "LEFT JOIN employers ON job_possitions.Emp_ID=employers.User_ID "
+            +"SELECT job_positions.* FROM job_positions "
+            + "LEFT JOIN employers ON job_positions.Emp_ID=employers.User_ID "
             + "LEFT JOIN users ON employers.User_ID=users.User_ID "
             + "WHERE users.name=?";
             
@@ -49,5 +50,28 @@ public class JobPositionDAO {
             db.close();
         }
         return jobPositions;
+    }
+
+    private static String deleteJobPosition = "DELETE FROM job_positions WHERE Job_ID=?";
+
+    public static void deleteJobPosition(int jobID) throws Exception {
+        Connection con = null;
+        JdbcManager db = new JdbcManager();
+
+        try {
+
+            con = db.getConnection();
+            PreparedStatement stmt = con.prepareStatement(deleteJobPosition);
+
+            // Set values to parameter
+            stmt.setInt(1, jobID);
+
+            stmt.executeUpdate();
+
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        } finally {
+            db.close();
+        }
     }
 }
