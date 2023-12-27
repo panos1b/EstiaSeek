@@ -44,9 +44,9 @@ public class ApplicationDAO {
         
     }
 
-    private static final String deleteApplication = "DELETE FROM applications WHERE Applicant_ID=?";
+    private static final String deleteApplication = "DELETE FROM applications WHERE Applicant_ID=? AND Job_ID=?";
 
-    public static void deleteApplication(int removeID) throws Exception {
+    public static void deleteApplication(int applicantID, int positionID) throws Exception {
         Connection con = null;
         JdbcManager db = new JdbcManager();
 
@@ -56,7 +56,8 @@ public class ApplicationDAO {
             PreparedStatement stmt = con.prepareStatement(deleteApplication);
 
             // Set value to parameter
-            stmt.setInt(1, removeID);
+            stmt.setInt(1, applicantID);
+            stmt.setInt(2, positionID);
 
             stmt.executeUpdate();
 
