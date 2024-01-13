@@ -1,5 +1,50 @@
+<%@ page import="vscode_ismgroup39.Applicant"%>
+<%@ page import="vscode_ismgroup39.User"%>
+<%@ page import="vscode_ismgroup39.JobPositionDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+    User user = (User) session.getAttribute("userObj");
+    if (user == null || user instanceof Applicant) {
+%>
+    <jsp:forward page="login.jsp" >
+    <jsp:param name="message" value="You have to login as an Employer to view this page!" />
+    </jsp:forward>
+<%
+    }
+    String jobTitle = request.getParameter("your_job_title");
+    String email = request.getParameter("email");    
+    String location = request.getParameter("location");
+    String experienceLevel = request.getParameter("experience_level");
+    String jobDescription = request.getParameter("your_job_description");
+    String submited = request.getParameter("submited");
+    boolean fieldsFilled = true;
+    if(submited != null && !submited.equals("null") ){
+       if(jobTitle == null || jobTitle.equals("null") || 
+            email == null || email.equals("null") || 
+            location == null || location.equals("null") || 
+            experienceLevel == null || experienceLevel.equals("null") || 
+            jobDescription == null || jobDescription.equals("null")){
+out.print(jobTitle+"\n");
+out.print(email+"\n");
+out.print(location+"\n");
+out.print(experienceLevel+"\n");
+out.print(jobDescription+"\n");
+          fieldsFilled = false;
+        }else{
+          // Call the DAO to handle database operations
+          JobPositionDAO.createPosition(user.getUserID(),jobTitle, email, location, experienceLevel, jobDescription);
+%>
+    <jsp:forward page="job_posting.jsp" >
+    <jsp:param name="submited" value="null" />
+    <jsp:param name="posted" value="true" />
+    </jsp:forward>
+<%
+        }
+            
+    }
+    
 
+%>;
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +83,7 @@
 
                     <div class="signin-form">
                         <h2 class="form-title">Post a Job</h2>
-                        <form method="POST" class="register-form" id="login-form">
+                        <form action="<%=request.getContextPath() %>/job_posting.jsp?submited=true" method="POST" class="register-form" id="login-form">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="your_job_title" id="your_job_title" placeholder="Job Tittle"/>
@@ -80,9 +125,14 @@
                             </div>
                             
                             <div class="form-group form-button">
-                                <a class="form-submit" type="submit" href="company_profile.jsp">Submit!</a>
-                                <!-- <input type="submit" name="submi_form" id="submi_form" class="form-submit" value="Submit!"/> -->
+                                <input type="submit" name="submi_form" id="submi_form" class="form-submit" value="Submit!"/>
                             </div>
+                            <% if(!fieldsFilled) { %>		
+                                <div class="alert alert-danger text-center" role="alert">You must fill all the fields!</div>
+                            <% } %>
+                            <% if("true".equals(request.getParameter("posted"))) { %>		
+                            <div id="successMessage" class="alert alert-success" role="alert">You submitted your Job successfully!</div>
+                            <% } %>
                         </form>
                         </div>
                     </div>
