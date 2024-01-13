@@ -2,13 +2,13 @@
 <%@ page import="vscode_ismgroup39.User"%>
 <%@ page import="vscode_ismgroup39.JobPositionDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%-- This page is SELF CONTROLLED!--%>
 <%
     User user = (User) session.getAttribute("userObj");
     if (user == null || user instanceof Applicant) {
+    request.setAttribute("message", "You have to login as an Employer to view this page!");
 %>
-    <jsp:forward page="login.jsp" >
-    <jsp:param name="message" value="You have to login as an Employer to view this page!" />
-    </jsp:forward>
+    <jsp:forward page="login.jsp" />
 <%
     }
     String jobTitle = request.getParameter("your_job_title");
@@ -24,11 +24,6 @@
             location == null || location.equals("null") || 
             experienceLevel == null || experienceLevel.equals("null") || 
             jobDescription == null || jobDescription.equals("null")){
-out.print(jobTitle+"\n");
-out.print(email+"\n");
-out.print(location+"\n");
-out.print(experienceLevel+"\n");
-out.print(jobDescription+"\n");
           fieldsFilled = false;
         }else{
           // Call the DAO to handle database operations
@@ -44,7 +39,7 @@ out.print(jobDescription+"\n");
     }
     
 
-%>;
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,7 +126,7 @@ out.print(jobDescription+"\n");
                                 <div class="alert alert-danger text-center" role="alert">You must fill all the fields!</div>
                             <% } %>
                             <% if("true".equals(request.getParameter("posted"))) { %>		
-                            <div id="successMessage" class="alert alert-success" role="alert">You submitted your Job successfully!</div>
+                            <div id="successMessage" class="alert alert-success text-center" role="alert">You submitted your Job successfully!</div>
                             <% } %>
                         </form>
                         </div>
