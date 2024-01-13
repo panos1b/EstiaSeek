@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Show Interest</title>
+    <title>EstiaSeek - Show Interest</title>
 
     <!-- Bootstrap CSS -->
 	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
@@ -87,6 +87,9 @@
                     <jsp:forward page = "show_interest.jsp">
                     <jsp:param name = "submission" value = "success"/>
                     <jsp:param name = "JobID" value = "null"/>
+                    <jsp:param name = "name" value = "<%= position %>"/>
+                    <jsp:param name = "location" value = "<%= location %>"/>
+                    <jsp:param name = "level" value = "<%= level %>"/>
                     </jsp:forward>
 
 
@@ -100,6 +103,9 @@
                     <jsp:forward page = "show_interest.jsp">
                     <jsp:param name = "submission" value = "error"/>
                     <jsp:param name = "JobID" value = "null"/>
+                    <jsp:param name = "name" value = "<%= position %>"/>
+                    <jsp:param name = "location" value = "<%= location %>"/>
+                    <jsp:param name = "level" value = "<%= level %>"/>
                     </jsp:forward>
 			
 <%	
@@ -152,6 +158,9 @@
 
                   <form action="show_interest.jsp" method="post">
                     <input type="hidden" name="JobID" value="<%= jb.getJobID()%>">
+                    <input type="hidden" name="name" value="<%= position%>">
+                    <input type="hidden" name="location" value="<%= location%>">
+                    <input type="hidden" name="level" value="<%= level%>">
                     <button type="submit" id="interestBtn" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop2">Interested</button>
                   </form>
             <%
