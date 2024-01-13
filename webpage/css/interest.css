@@ -26,9 +26,18 @@ body{
     padding-top: 56px;
 }
 
+.parent-container {
+    margin-top: 20px;
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .container{
     margin-top: 20px;
     width: 1200px;
+    align-items: center;
 }
 
 .card-container{

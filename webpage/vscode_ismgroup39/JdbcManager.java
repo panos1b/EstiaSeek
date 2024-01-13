@@ -8,11 +8,11 @@ import java.sql.SQLException;
 public class JdbcManager {
 
 	/* Database connection settings, change dbName, dbusername, dbpassword */
-	private final String dbServer = "server_name";
-	private final String dbServerPort = "port_number";
-	private final String dbName = "db_name";
-	private final String dbusername = "username";
-	private final String dbpassword = "password";
+	private final String dbServer = "195.251.249.131";
+	private final String dbServerPort = "3306";
+	private final String dbName = "ismgroup39";
+	private final String dbusername = "ismgroup39";
+	private final String dbpassword = "u74w0t";
 
 	private Connection con = null;
 	

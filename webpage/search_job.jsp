@@ -32,7 +32,7 @@
             <div class="signup-content">
                 <div class="signup-form">
                     <h2 class="form-title">Search for Jobs</h2>
-                    <form method="POST" class="register-form" id="register-form">
+                    <form action="<%=request.getContextPath() %>/show_interest.jsp" method="POST" class="register-form" id="register-form">
                         <div class="form-group" style="margin-bottom: 35px;">
                             <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                             <input type="text" name="name" id="name" placeholder="Position Title"/>
@@ -64,8 +64,7 @@
                             </select>
                         </div>
                         <div class="form-group form-button">
-                            <a type="link" class="form-submit" href="show_interest.jsp">Search</a>
-                            <!-- <input type="submit" name="signup" id="signup" class="form-submit" value="Search"/> -->
+                              <input type="submit" name="submi_form" id="submi_form" class="form-submit" value="Search"/>
                         </div>
                     </form>
                 </div>

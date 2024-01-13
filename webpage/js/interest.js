@@ -5,10 +5,15 @@ window.onload = function() {
     cards.forEach((card) => {
         let seeMoreBtn = card.querySelector(".see-more-btn");
         let textContent = card.querySelector(".card-content .text");
+        let lista = card.querySelector(".list-unstyled");
+        let successBtn = card.querySelector(".btn-success");
 
-        if (textContent.scrollHeight == textContent.clientHeight){
+        if ((textContent.scrollHeight + lista.scrollHeight + successBtn.scrollHeight) == (lista.clientHeight + successBtn.clientHeight)) {
             seeMoreBtn.style.display = "none";
             textContent.style.height = "fit-content";
+            lista.style.display = 'block';
+            successBtn.style.display = 'block';
+
         } else {
             card.classList.add("gradient");
         }
@@ -21,8 +26,8 @@ window.onload = function() {
 cards.forEach((card) => {
     let seeMoreBtn = card.querySelector(".see-more-btn");
     let textContent = card.querySelector(".card-content .text");
-    let lista = card.querySelector(".list-unstyled")
-    let successBtn = card.querySelector(".btn-success")
+    let lista = card.querySelector(".list-unstyled");
+    let successBtn = card.querySelector(".btn-success");
 
     seeMoreBtn.addEventListener("click", () => {
         card.classList.toggle("active");
@@ -45,6 +50,8 @@ cards.forEach((card) => {
     });
 });
 
+/*
+
 const closeButton = document.getElementById("closeButton");
 
 function redirectShowInterestPage() {
@@ -63,3 +70,29 @@ interestBtn.forEach((button) => {
 
     });
 });
+*/
+
+var msg = "You submitted your interest successfully!";
+
+// Set the message in the element
+document.getElementById("successMessage").innerHTML = msg;
+
+// Automatically clear the message after 3 seconds (3000 milliseconds)
+setTimeout(function(){
+    document.getElementById("successMessage").innerHTML = '';
+
+    successMessage.style.display = 'none';
+}, 3000);
+
+
+var msg1 = "Sorry, you have already submitted for this job!";
+
+// Set the message in the element
+document.getElementById("errorMessage").innerHTML = msg1;
+
+// Automatically clear the message after 3 seconds (3000 milliseconds)
+setTimeout(function(){
+    document.getElementById("errorMessage").innerHTML = '';
+    errorMessage.style.display = 'none';
+}, 3000);
+

@@ -1,15 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.List" %>
-<%@ page import="vscode_ismgroup39.*" %>
-
-
 <!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.stream.Stream"%>
+<%@ page import="vscode_ismgroup39.*" %>
+<%@ page import="java.util.ArrayList" %>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>EstiaSeek - Show Interest</title>
+    <title>Show Interest</title>
 
     <!-- Bootstrap CSS -->
 	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
@@ -25,139 +26,145 @@
 </head>
 <body>
 
-  <%@ include file="applicant_navbar_signed_in.jsp" %>
+    <%
+    String position = request.getParameter("name");
+    String location = request.getParameter("location");
+    String level = request.getParameter("level");
 
+    if( position == null || position.equals("null") ){
+            position="";
+        }
+        if(location == null || location.equals("null")){
+            location="";
+        }
+        if(level == null ||level.equals("null")){
+            level="";
+        }else if(level.equals("any")){
+            level="%";
+        } 
 
+    User user = (User) session.getAttribute("userObj");
+
+    if (user == null) {
+        // User not signed in
+        %>
+        <%@ include file="navbar_not_signed_in.jsp" %>
+        <%
+
+    } else {
+
+        // User signed in
+        if (user instanceof Employer) {
+            // Employer signed in
+            %>
+            <%@ include file="employer_navbar_signed_in.jsp" %>
+            <%
+			
+        } else {
+            // Applicant signed in
+            %>
+            <%@ include file="applicant_navbar_signed_in.jsp" %>
+            <%
+        }
+    }
+
+    ArrayList<JobPosition> jobs = JobPositionDAO.getJobs(position,location,level);
+    %>
+
+    
     <div class="container">
+    <%
+
+    String jobIDParameter = request.getParameter("JobID");
+
+                if (jobIDParameter != null && !jobIDParameter.isEmpty()) {
+                  try {
+                    int applicantIdd = user.getUserID();
+                    int applicationID = Integer.parseInt(jobIDParameter);
+                    ApplicationDAO.submitApplication(applicantIdd, applicationID);
+                    //response.sendRedirect("show_interest.jsp");
+         %>
+                    <jsp:forward page = "show_interest.jsp">
+                    <jsp:param name = "submission" value = "success"/>
+                    <jsp:param name = "JobID" value = "null"/>
+                    </jsp:forward>
+
+
+            
+      <%
+
+                  } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                  }  catch (Exception e) {
+      %>
+                    <jsp:forward page = "show_interest.jsp">
+                    <jsp:param name = "submission" value = "error"/>
+                    <jsp:param name = "JobID" value = "null"/>
+                    </jsp:forward>
+			
+<%	
+		            }
+          }
+      String submissionValue = request.getParameter("submission");
+
+      if ("success".equals(submissionValue)) {
+      %>
+        <div id="successMessage" class="alert alert-success text-center" role="alert">
+              You submitted your interest succesfully!
+        </div>
+      <%
+      } else if ("error".equals(submissionValue)) {
+      %>
+        <div id="errorMessage" class="alert alert-danger text-center" role="alert">
+							Sorry, you have already submitted for this job!
+        </div>
+      <%
+
+      }
+    %>
+
     <div class ="card-container">
-        <div class="card">
+    <% 
+        JobPosition jb = null;
+
+      
+
+        Iterator<JobPosition> iterator = jobs.iterator();
+        int i=1;
+        while (iterator.hasNext()){
+          jb = iterator.next(); ;
+      %>
+        <div class="card" >
             <div class="card-content">
-                <h5 class="card-title">Delivery</h5>
-                <p class="text">From April 2024 onwards, Mastercard Network Level Services (NLS) platform will enhance Mastercard Issuer value proposition in an unparalleled way by enabling a set of optional modules to support fundamental services that customers will be able to choose from, as well as premium components. All new services will be fueled by new technologies, designed to address client feedback while being executed through a strong dedicated engagement team, providing our principal members with the adequate support.
-                  Role
+                <h5 class="card-title"><%= jb.getPosition()%> </h5>
+                <p class="text"><%= jb.getDescription()%>
                   </p>
                   <div class="row">
                     <ul class="list-unstyled">
-                        <li>Experience Required: Bob </li>
-                        <li>Business Name: Jakson</li>
-                        <li>Salary: 1000$</li>
+                        <li>Experience Required: <%= jb.getLevel()%>  </li>
+                        <li>Location: <%= jb.getLocation()%> </li>
+                        <li>Email: <%= jb.getEmailForCV()%></li>
                     </ul>    
                   </div>
-                  <button type="button" id="interestBtn" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop2">Interested</button>
-                  <br>
+      <%
+        if (user instanceof Applicant) {
+          %>
+
+                  <form action="show_interest.jsp" method="post">
+                    <input type="hidden" name="JobID" value="<%= jb.getJobID()%>">
+                    <button type="submit" id="interestBtn" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop2">Interested</button>
+                  </form>
+            <%
+        }
+        %>
+            
                 <span class="see-more-btn"> See more</span>
             </div> 
         </div>
-        <div class="card">
-          <div class="card-content">
-              <h5 class="card-title">Manager</h5>
-              <p class="text">From April 2024 onwards, Mastercard Network Level Services (NLS) platform will enhance Mastercard Issuer value proposition in an unparalleled way by enabling a set of optional modules to support fundamental services that customers will be able to choose from, as well as premium components. All new services will be fueled by new technologies, designed to address client feedback while being executed through a strong dedicated engagement team, providing our principal members with the adequate support.
-                Role
-                </p>
-                <div class="row">
-                  <ul class="list-unstyled">
-                      <li>Experience Required: Bob </li>
-                      <li>Business Name: Jakson</li>
-                      <li>Salary: 1000$</li>
-                  </ul>    
-                </div>
-                <button type="button" id="interestBtn" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop2">Interested</button>
-                <br>
-              <span class="see-more-btn"> See more</span>
-          </div> 
-      </div>
-        <div class="card">
-            <div class="card-content">
-                <h5 class="card-title">Cook</h5>
-                <p class="text">From April 2024 onwards, Mastercard Network Level Services (NLS) platform will enhance Mastercard Issuer value proposition in an unparalleled way by enabling a set of optional modules to support fundamental services that customers will be able to choose from, as well as premium components. All new services will be fueled by new technologies, designed to address client feedback while being executed through a strong dedicated engagement team, providing our principal members with the adequate support.
-                  Role
-                  </p>
-                  <div class="row">
-                    <ul class="list-unstyled">
-                        <li>Experience Required: Bob </li>
-                        <li>Business Name: Jakson</li>
-                        <li>Salary: 1000$</li>
-                    </ul>    
-                  </div>
-                  <button type="button" id="interestBtn" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop2">Interested</button>
-                  <br>
-                <span class="see-more-btn"> See more</span>
-            </div> 
-        </div>
-        <div class="card">
-          <div class="card-content">
-              <h5 class="card-title">Barista</h5>
-              <p class="text">From April 2024 onwards, Mastercard Network Level Services (NLS) platform will enhance Mastercard Issuer value proposition in an unparalleled way by enabling a set of optional modules to support fundamental services that customers will be able to choose from, as well as premium components. All new services will be fueled by new technologies, designed to address client feedback while being executed through a strong dedicated engagement team, providing our principal members with the adequate support.
-                Role
-                </p>
-                <div class="row">
-                  <ul class="list-unstyled">
-                      <li>Experience Required: Bob </li>
-                      <li>Business Name: Jakson</li>
-                      <li>Salary: 1000$</li>
-                  </ul>    
-                </div>
-                <button type="button" id="interestBtn" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop2">Interested</button>
-                <br>
-              <span class="see-more-btn"> See more</span>
-
-          </div>  
-      </div>
-      <div class="card">
-        <div class="card-content">
-            <h5 class="card-title">Waiter</h5>
-            <p class="text">From April 2024 onwards, Mastercard Network Level Services (NLS) platform will enhance Mastercard Issuer value proposition in an unparalleled way by enabling a set of optional modules to support fundamental services that customers will be able to choose from, as well as premium components. All new services will be fueled by new technologies, designed to address client feedback while being executed through a strong dedicated engagement team, providing our principal members with the adequate support.
-              Role
-              </p>
-              <div class="row">
-                <ul class="list-unstyled">
-                    <li>Experience Required: Bob </li>
-                    <li>Business Name: Jakson</li>
-                    <li>Salary: 1000$</li>
-                </ul>    
-              </div>
-              <button type="button" id="interestBtn" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop2">Interested</button>
-              <br>
-            <span class="see-more-btn"> See more</span>
-        </div>  
-    </div>
-    <div class="card">
-      <div class="card-content">
-          <h5 class="card-title">Chef de partie</h5>
-          <p class="text">From April 2024 onwards, Mastercard Network Level Services (NLS) platform will enhance Mastercard Issuer value proposition in an unparalleled way by enabling a set of optional modules to support fundamental services that customers will be able to choose from, as well as premium components. All new services will be fueled by new technologies, designed to address client feedback while being executed through a strong dedicated engagement team, providing our principal members with the adequate support.
-            Role
-            </p>
-            <div class="row">
-              <ul class="list-unstyled">
-                  <li>Experience Required: Bob </li>
-                  <li>Business Name: Jakson</li>
-                  <li>Salary: 1000$</li>
-              </ul>    
-            </div>
-            <button type="button" id="interestBtn" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop2">Interested</button>
-            <br>
-          <span class="see-more-btn"> See more</span>
-      </div>  
-  </div>
-  <div class="card">
-    <div class="card-content">
-        <h5 class="card-title">Head Chef</h5>
-        <p class="text">From April 2024 onwards, Mastercard Network Level Services (NLS) platform will enhance Mastercard Issuer value proposition in an unparalleled way by enabling a set of optional modules to support fundamental services that customers will be able to choose from, as well as premium components. All new services will be fueled by new technologies, designed to address client feedback while being executed through a strong dedicated engagement team, providing our principal members with the adequate support.
-          Role
-          </p>
-          <div class="row">
-            <ul class="list-unstyled">
-                <li>Experience Required: Bob </li>
-                <li>Business Name: Jakson</li>
-                <li>Salary: 1000$</li>
-            </ul>    
-          </div>
-          <button type="button" id="interestBtn" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop2">Interested</button>
-          <br>
-        <span class="see-more-btn"> See more</span>
-    </div>  
-  </div>
-
+    <%
+      }
+    %>
+<!--
   <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -173,10 +180,10 @@
       </div>
     </div>
   </div>
+  -->
 
   </div>
 </div>
-
 
 
 
