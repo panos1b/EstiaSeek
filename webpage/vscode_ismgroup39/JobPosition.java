@@ -6,12 +6,23 @@ import java.util.List;
 /**
  *
  * @author Panos Dask
+ * @author Eqerem Hena
  */
 public class JobPosition {
     private final int jobID;
-    private String emailForCV, location, description, level;
-    private final List<Application> applications=new ArrayList<>();
-    
+    private String position, emailForCV, location, description, level;
+    private final List<Application> applications = new ArrayList<>();
+
+    public JobPosition(int jobID, String position, String emailForCV, String location, String description,
+            String level) {
+        this.jobID = jobID;
+        this.position = position;
+        this.emailForCV = emailForCV;
+        this.location = location;
+        this.description = description;
+        this.level = level;
+    }
+
     public JobPosition(int jobID, String emailForCV, String location, String description, String level) {
         this.jobID = jobID;
         this.emailForCV = emailForCV;
@@ -19,23 +30,31 @@ public class JobPosition {
         this.description = description;
         this.level = level;
     }
-    
-    public  void addApplication(Application application){
+
+    public void addApplication(Application application) {
         applications.add(application);
     }
-    
-    public void removeApplication(Application application){
+
+    public void removeApplication(Application application) {
         applications.remove(application);
     }
 
-    public List<Application> getApplications(){
+    public List<Application> getApplications() {
         return applications;
     }
 
-        
     // Getter and Setter for jobID
     public int getJobID() {
         return jobID;
+    }
+
+    // Getter and Setter for position
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     // Getter and Setter for emailForCV
