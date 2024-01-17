@@ -11,7 +11,7 @@ Corporate users of the website have the possibility to post new jobs in their co
 If a user is not logged in, they can search for job candidates. However, for the rest of the website's processes, you need to register and log in.
 
 ### Class Diagram
-<a href="https://ibb.co/gdVSZdt"><img src="https://i.ibb.co/ypS6Fpg/Screenshot-2023-12-24-185518.png" alt="Screenshot-2023-12-24-185518" border="0"></a>
+<a href='https://svgshare.com/s/123P' ><img src='https://svgshare.com/i/123P.svg' title='Class Diagram' alt="Class Diagram"/></a>
 
 ### Component Diagram
-<a href="https://ibb.co/q1jcWdw"><img src="https://i.ibb.co/0J26Fc3/Screenshot-2023-12-24-185424.png" alt="Screenshot-2023-12-24-185424" border="0"></a>
+<a href='https://svgshare.com/s/122M' ><img src='https://svgshare.com/i/122M.svg' title='Component Diagram' alt="Component Diagram"/></a>
